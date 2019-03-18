@@ -12,7 +12,7 @@ namespace SomerenDAL
         public Base()
         {
             // DO NOT FORGET TO INSERT YOUR CONNECTION STRING NAMED 'SOMEREN DATABASE' IN YOUR APP.CONFIG!!
-            // DIT IS EEN TEST VOOR GITHUB
+
             conn = new SqlConnection(connectionString: ConfigurationManager.ConnectionStrings["SomerenDatabase"].ConnectionString);
             adapter = new SqlDataAdapter();
 
