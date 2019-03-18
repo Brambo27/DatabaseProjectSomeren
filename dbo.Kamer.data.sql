@@ -1,0 +1,5 @@
+﻿INSERT INTO [dbo].[Kamer] ([Kamer_Nummer], [Aantal_Bedden], [is_docenten_kamer]) VALUES (205, 12, 0)
+INSERT INTO [dbo].[Kamer] ([Kamer_Nummer], [Aantal_Bedden], [is_docenten_kamer]) VALUES (201, 16, 0)
+INSERT INTO [dbo].[Kamer] ([Kamer_Nummer], [Aantal_Bedden], [is_docenten_kamer]) VALUES (202, 4, 1)
+INSERT INTO [dbo].[Kamer] ([Kamer_Nummer], [Aantal_Bedden], [is_docenten_kamer]) VALUES (203, 8, 0)
+INSERT INTO [dbo].[Kamer] ([Kamer_Nummer], [Aantal_Bedden], [is_docenten_kamer]) VALUES (204, 12, 0)
