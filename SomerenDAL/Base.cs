@@ -17,8 +17,7 @@ namespace SomerenDAL
             adapter = new SqlDataAdapter();
 
         }
-
-        //KOTS
+        
         protected SqlConnection OpenConnection()
         {
             if (conn.State == ConnectionState.Closed || conn.State == ConnectionState.Broken)
