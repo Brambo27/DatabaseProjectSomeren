@@ -18,6 +18,7 @@ namespace SomerenDAL
 
         }
 
+        //KOTS
         protected SqlConnection OpenConnection()
         {
             if (conn.State == ConnectionState.Closed || conn.State == ConnectionState.Broken)
