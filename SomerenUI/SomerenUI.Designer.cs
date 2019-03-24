@@ -46,6 +46,9 @@
             this.pnl_DrankVoorraad = new System.Windows.Forms.Panel();
             this.lblDrankVoorraad = new System.Windows.Forms.Label();
             this.listViewDrankVoorraad = new System.Windows.Forms.ListView();
+            this.Naam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Drank_ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Voorraad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.imgStudentsLogo = new System.Windows.Forms.PictureBox();
             this.pnl_Students = new System.Windows.Forms.Panel();
             this.listViewStudents = new System.Windows.Forms.ListView();
@@ -66,6 +69,8 @@
             this.pnl_Rooms = new System.Windows.Forms.Panel();
             this.imgRoomsLogo = new System.Windows.Forms.PictureBox();
             this.lblRooms = new System.Windows.Forms.Label();
+            this.Prijs = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.VoorraadStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             KamerNummer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
@@ -213,14 +218,34 @@
             // 
             // listViewDrankVoorraad
             // 
-            this.listViewDrankVoorraad.BackColor = System.Drawing.Color.Yellow;
-            this.listViewDrankVoorraad.ForeColor = System.Drawing.Color.Yellow;
+            this.listViewDrankVoorraad.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Naam,
+            this.Drank_ID,
+            this.Voorraad,
+            this.Prijs,
+            this.VoorraadStatus});
             this.listViewDrankVoorraad.Location = new System.Drawing.Point(16, 42);
             this.listViewDrankVoorraad.Name = "listViewDrankVoorraad";
-            this.listViewDrankVoorraad.Size = new System.Drawing.Size(121, 97);
+            this.listViewDrankVoorraad.Size = new System.Drawing.Size(766, 307);
             this.listViewDrankVoorraad.TabIndex = 0;
             this.listViewDrankVoorraad.UseCompatibleStateImageBehavior = false;
             this.listViewDrankVoorraad.View = System.Windows.Forms.View.Details;
+            // 
+            // Naam
+            // 
+            this.Naam.DisplayIndex = 1;
+            this.Naam.Text = "Naam";
+            this.Naam.Width = 100;
+            // 
+            // Drank_ID
+            // 
+            this.Drank_ID.DisplayIndex = 2;
+            this.Drank_ID.Text = "Drank_ID";
+            // 
+            // Voorraad
+            // 
+            this.Voorraad.DisplayIndex = 3;
+            this.Voorraad.Text = "Voorraad";
             // 
             // imgStudentsLogo
             // 
@@ -387,17 +412,27 @@
             this.lblRooms.TabIndex = 1;
             this.lblRooms.Text = "Room";
             // 
+            // Prijs
+            // 
+            this.Prijs.DisplayIndex = 4;
+            this.Prijs.Text = "Prijs";
+            // 
+            // VoorraadStatus
+            // 
+            this.VoorraadStatus.DisplayIndex = 0;
+            this.VoorraadStatus.Text = "X";
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 505);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pnl_DrankVoorraad);
             this.Controls.Add(this.pnl_Dashboard);
             this.Controls.Add(this.pnl_Rooms);
             this.Controls.Add(this.pnl_Teachers);
             this.Controls.Add(this.pnl_Students);
-            this.Controls.Add(this.pnl_DrankVoorraad);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "SomerenUI";
@@ -462,6 +497,11 @@
         private System.Windows.Forms.PictureBox imgDashboardLogo;
         private System.Windows.Forms.ListView listViewDrankVoorraad;
         private System.Windows.Forms.Label lblDrankVoorraad;
+        private System.Windows.Forms.ColumnHeader Naam;
+        private System.Windows.Forms.ColumnHeader Drank_ID;
+        private System.Windows.Forms.ColumnHeader Voorraad;
+        private System.Windows.Forms.ColumnHeader Prijs;
+        private System.Windows.Forms.ColumnHeader VoorraadStatus;
     }
 }
 

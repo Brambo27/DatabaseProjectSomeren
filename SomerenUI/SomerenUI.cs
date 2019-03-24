@@ -164,6 +164,32 @@ namespace SomerenUI
 
                 // show Rooms
                 pnl_DrankVoorraad.Show();
+
+
+                // fill the drank listview within the drank panel with a list of drank
+                SomerenLogic.Drank_Service drank_Service  = new SomerenLogic.Drank_Service();
+                List<Drank> drankList = drank_Service.GetDrank();
+
+                // clear the listview before filling it again
+                listViewDrankVoorraad.Items.Clear();
+
+                foreach (SomerenModel.Drank d in drankList)
+                {
+                    ListViewItem li = new ListViewItem(d.Name);
+                    listViewDrankVoorraad.Items.Add(li);
+                    li.SubItems.Add(d.Number.ToString());
+                    li.SubItems.Add(d.Voorraad.ToString());
+                    li.SubItems.Add(d.Prijs.ToString());
+
+                    if (d.Voorraad < 10)
+                    {
+                        li.SubItems.Add("te laag");
+                    }
+                    else
+                    {
+                        li.SubItems.Add("Genoeg");
+                    }
+                }
             }
         }
 
