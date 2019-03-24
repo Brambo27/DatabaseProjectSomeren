@@ -1,4 +1,6 @@
-﻿namespace SomerenUI
+﻿using System;
+
+namespace SomerenUI
 {
     partial class SomerenUI
     {
@@ -40,12 +42,15 @@
             this.activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.barToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.drankvoorraadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drinkSupplyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cashregisterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.revenueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnl_Dashboard = new System.Windows.Forms.Panel();
             this.imgDashboardLogo = new System.Windows.Forms.PictureBox();
             this.lbl_Dashboard = new System.Windows.Forms.Label();
+            this.pnl_DrankVoorraad = new System.Windows.Forms.Panel();
+
             this.pnl_Revenue = new System.Windows.Forms.Panel();
             this.lbl_endDate = new System.Windows.Forms.Label();
             this.lbl_startDate = new System.Windows.Forms.Label();
@@ -87,6 +92,7 @@
             KamerNummer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
+            this.pnl_DrankVoorraad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboardLogo)).BeginInit();
             this.pnl_Revenue.SuspendLayout();
             this.pnl_DrinkSupply.SuspendLayout();
@@ -111,7 +117,9 @@
             this.lecturersToolStripMenuItem,
             this.activitiesToolStripMenuItem,
             this.roomsToolStripMenuItem,
-            this.barToolStripMenuItem});
+            this.barToolStripMenuItem,
+            this.drankvoorraadToolStripMenuItem });
+
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(962, 24);
@@ -168,6 +176,13 @@
             this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.activitiesToolStripMenuItem.Text = "Activities";
             // 
+            // drankvoorraadToolStripMenuItem
+            // 
+            this.drankvoorraadToolStripMenuItem.Name = "drankvoorraadToolStripMenuItem";
+            this.drankvoorraadToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
+            this.drankvoorraadToolStripMenuItem.Text = "Drankvoorraad";
+            this.drankvoorraadToolStripMenuItem.Click += new System.EventHandler(this.drankvoorraadToolStripMenuItem_Click);
+            // 
             // roomsToolStripMenuItem
             // 
             this.roomsToolStripMenuItem.Name = "roomsToolStripMenuItem";
@@ -209,7 +224,7 @@
             // 
             this.pnl_Dashboard.Controls.Add(this.imgDashboardLogo);
             this.pnl_Dashboard.Controls.Add(this.lbl_Dashboard);
-            this.pnl_Dashboard.Location = new System.Drawing.Point(0, 0);
+            this.pnl_Dashboard.Location = new System.Drawing.Point(15, 30);
             this.pnl_Dashboard.Name = "pnl_Dashboard";
             this.pnl_Dashboard.Size = new System.Drawing.Size(940, 470);
             this.pnl_Dashboard.TabIndex = 2;
@@ -297,15 +312,24 @@
             this.pnl_DrinkSupply.Size = new System.Drawing.Size(940, 470);
             this.pnl_DrinkSupply.TabIndex = 8;
             // 
+            // pnl_DrankVoorraad
+            // 
+            this.pnl_DrankVoorraad.Controls.Add(this.lblDrankVoorraad);
+            this.pnl_DrankVoorraad.Controls.Add(this.listViewDrankVoorraad);
+            this.pnl_DrankVoorraad.Location = new System.Drawing.Point(15, 30);
+            this.pnl_DrankVoorraad.Name = "pnl_DrankVoorraad";
+            this.pnl_DrankVoorraad.Size = new System.Drawing.Size(940, 470);
+            this.pnl_DrankVoorraad.TabIndex = 8;
+            // 
             // lblDrankVoorraad
             // 
             this.lblDrankVoorraad.AutoSize = true;
             this.lblDrankVoorraad.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDrankVoorraad.Location = new System.Drawing.Point(10, 10);
             this.lblDrankVoorraad.Name = "lblDrankVoorraad";
-            this.lblDrankVoorraad.Size = new System.Drawing.Size(145, 29);
+            this.lblDrankVoorraad.Size = new System.Drawing.Size(181, 29);
             this.lblDrankVoorraad.TabIndex = 3;
-            this.lblDrankVoorraad.Text = "Drink supply";
+            this.lblDrankVoorraad.Text = "Drank Voorraad";
             // 
             // listViewDrankVoorraad
             // 
@@ -576,6 +600,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboardLogo)).EndInit();
             this.pnl_Revenue.ResumeLayout(false);
             this.pnl_Revenue.PerformLayout();
+            this.pnl_DrankVoorraad.ResumeLayout(false);
+            this.pnl_DrankVoorraad.PerformLayout();
             this.pnl_DrinkSupply.ResumeLayout(false);
             this.pnl_DrinkSupply.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgStudentsLogo)).EndInit();
@@ -590,6 +616,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -624,6 +655,8 @@
         private System.Windows.Forms.ColumnHeader Docentenkamer;
         private System.Windows.Forms.PictureBox imgRoomsLogo;
         private System.Windows.Forms.Label lblRooms;
+        private System.Windows.Forms.ToolStripMenuItem drankvoorraadToolStripMenuItem;
+        private System.Windows.Forms.Panel pnl_DrankVoorraad;
         private System.Windows.Forms.Panel pnl_DrinkSupply;
         private System.Windows.Forms.PictureBox imgDashboardLogo;
         private System.Windows.Forms.ListView listViewDrankVoorraad;
