@@ -38,7 +38,7 @@ namespace SomerenUI
                 imgStudentsLogo.Hide();
                 pnl_Rooms.Hide();
                 imgRoomsLogo.Hide();
-                pnl_DrankVoorraad.Hide();
+                pnl_DrinkSupply.Hide();
 
 
 
@@ -55,7 +55,7 @@ namespace SomerenUI
                 imgTeachersLogo.Hide();
                 pnl_Rooms.Hide();
                 imgRoomsLogo.Hide();
-                pnl_DrankVoorraad.Hide();
+                pnl_DrinkSupply.Hide();
 
 
                 // show students
@@ -84,7 +84,7 @@ namespace SomerenUI
                 imgStudentsLogo.Hide();
                 pnl_Rooms.Hide();
                 imgRoomsLogo.Hide();
-                pnl_DrankVoorraad.Hide();
+                pnl_DrinkSupply.Hide();
 
 
                 // show Teachers
@@ -128,7 +128,7 @@ namespace SomerenUI
                 imgTeachersLogo.Hide();
                 pnl_Students.Hide();
                 imgStudentsLogo.Hide();
-                pnl_DrankVoorraad.Hide();
+                pnl_DrinkSupply.Hide();
 
                 // show Rooms
                 pnl_Rooms.Show();
@@ -149,7 +149,7 @@ namespace SomerenUI
                     li.SubItems.Add(r.Type.ToString());
                 }
             }
-            else if (panelName == "DrankVoorraad")
+            else if (panelName == "DrinkSupply")
             {
                 // hide all other panels
                 pnl_Dashboard.Hide();
@@ -163,7 +163,7 @@ namespace SomerenUI
 
 
                 // show Rooms
-                pnl_DrankVoorraad.Show();
+                pnl_DrinkSupply.Show();
             }
         }
 
@@ -201,9 +201,9 @@ namespace SomerenUI
             showPanel("Rooms");
         }
 
-        private void drankvoorraadToolStripMenuItem_Click(object sender, EventArgs e)
+        private void drinkSupplyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            showPanel("DrankVoorraad");
+            showPanel("DrinkSupply");
         }
     }
 }

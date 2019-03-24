@@ -39,11 +39,14 @@
             this.lecturersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.drankvoorraadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.barToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.drinkSupplyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cashregisterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.revenueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnl_Dashboard = new System.Windows.Forms.Panel();
             this.imgDashboardLogo = new System.Windows.Forms.PictureBox();
             this.lbl_Dashboard = new System.Windows.Forms.Label();
-            this.pnl_DrankVoorraad = new System.Windows.Forms.Panel();
+            this.pnl_DrinkSupply = new System.Windows.Forms.Panel();
             this.lblDrankVoorraad = new System.Windows.Forms.Label();
             this.listViewDrankVoorraad = new System.Windows.Forms.ListView();
             this.imgStudentsLogo = new System.Windows.Forms.PictureBox();
@@ -70,7 +73,7 @@
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboardLogo)).BeginInit();
-            this.pnl_DrankVoorraad.SuspendLayout();
+            this.pnl_DrinkSupply.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgStudentsLogo)).BeginInit();
             this.pnl_Students.SuspendLayout();
             this.pnl_Teachers.SuspendLayout();
@@ -92,7 +95,7 @@
             this.lecturersToolStripMenuItem,
             this.activitiesToolStripMenuItem,
             this.roomsToolStripMenuItem,
-            this.drankvoorraadToolStripMenuItem});
+            this.barToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(962, 24);
@@ -156,12 +159,34 @@
             this.roomsToolStripMenuItem.Text = "Rooms";
             this.roomsToolStripMenuItem.Click += new System.EventHandler(this.roomsToolStripMenuItem_Click);
             // 
-            // drankvoorraadToolStripMenuItem
+            // barToolStripMenuItem
             // 
-            this.drankvoorraadToolStripMenuItem.Name = "drankvoorraadToolStripMenuItem";
-            this.drankvoorraadToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
-            this.drankvoorraadToolStripMenuItem.Text = "Drankvoorraad";
-            this.drankvoorraadToolStripMenuItem.Click += new System.EventHandler(this.drankvoorraadToolStripMenuItem_Click);
+            this.barToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.drinkSupplyToolStripMenuItem,
+            this.cashregisterToolStripMenuItem,
+            this.revenueToolStripMenuItem});
+            this.barToolStripMenuItem.Name = "barToolStripMenuItem";
+            this.barToolStripMenuItem.Size = new System.Drawing.Size(36, 20);
+            this.barToolStripMenuItem.Text = "Bar";
+            // 
+            // drinkSupplyToolStripMenuItem
+            // 
+            this.drinkSupplyToolStripMenuItem.Name = "drinkSupplyToolStripMenuItem";
+            this.drinkSupplyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.drinkSupplyToolStripMenuItem.Text = "Drink supply";
+            this.drinkSupplyToolStripMenuItem.Click += new System.EventHandler(this.drinkSupplyToolStripMenuItem_Click);
+            // 
+            // cashregisterToolStripMenuItem
+            // 
+            this.cashregisterToolStripMenuItem.Name = "cashregisterToolStripMenuItem";
+            this.cashregisterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cashregisterToolStripMenuItem.Text = "Cashregister";
+            // 
+            // revenueToolStripMenuItem
+            // 
+            this.revenueToolStripMenuItem.Name = "revenueToolStripMenuItem";
+            this.revenueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.revenueToolStripMenuItem.Text = "Revenue";
             // 
             // pnl_Dashboard
             // 
@@ -174,7 +199,7 @@
             // 
             // imgDashboardLogo
             // 
-            this.imgDashboardLogo.Image = global::SomerenUI.Properties.Resources.someren;
+            this.imgDashboardLogo.Image = ((System.Drawing.Image)(resources.GetObject("imgDashboardLogo.Image")));
             this.imgDashboardLogo.InitialImage = null;
             this.imgDashboardLogo.Location = new System.Drawing.Point(805, 0);
             this.imgDashboardLogo.Name = "imgDashboardLogo";
@@ -192,14 +217,14 @@
             this.lbl_Dashboard.TabIndex = 1;
             this.lbl_Dashboard.Text = "Welcome to the Someren Application!";
             // 
-            // pnl_DrankVoorraad
+            // pnl_DrinkSupply
             // 
-            this.pnl_DrankVoorraad.Controls.Add(this.lblDrankVoorraad);
-            this.pnl_DrankVoorraad.Controls.Add(this.listViewDrankVoorraad);
-            this.pnl_DrankVoorraad.Location = new System.Drawing.Point(15, 30);
-            this.pnl_DrankVoorraad.Name = "pnl_DrankVoorraad";
-            this.pnl_DrankVoorraad.Size = new System.Drawing.Size(940, 470);
-            this.pnl_DrankVoorraad.TabIndex = 8;
+            this.pnl_DrinkSupply.Controls.Add(this.lblDrankVoorraad);
+            this.pnl_DrinkSupply.Controls.Add(this.listViewDrankVoorraad);
+            this.pnl_DrinkSupply.Location = new System.Drawing.Point(15, 30);
+            this.pnl_DrinkSupply.Name = "pnl_DrinkSupply";
+            this.pnl_DrinkSupply.Size = new System.Drawing.Size(940, 470);
+            this.pnl_DrinkSupply.TabIndex = 8;
             // 
             // lblDrankVoorraad
             // 
@@ -207,9 +232,9 @@
             this.lblDrankVoorraad.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDrankVoorraad.Location = new System.Drawing.Point(10, 10);
             this.lblDrankVoorraad.Name = "lblDrankVoorraad";
-            this.lblDrankVoorraad.Size = new System.Drawing.Size(181, 29);
+            this.lblDrankVoorraad.Size = new System.Drawing.Size(145, 29);
             this.lblDrankVoorraad.TabIndex = 3;
-            this.lblDrankVoorraad.Text = "Drank Voorraad";
+            this.lblDrankVoorraad.Text = "Drink supply";
             // 
             // listViewDrankVoorraad
             // 
@@ -224,7 +249,7 @@
             // 
             // imgStudentsLogo
             // 
-            this.imgStudentsLogo.Image = global::SomerenUI.Properties.Resources.someren;
+            this.imgStudentsLogo.Image = ((System.Drawing.Image)(resources.GetObject("imgStudentsLogo.Image")));
             this.imgStudentsLogo.InitialImage = null;
             this.imgStudentsLogo.Location = new System.Drawing.Point(805, 0);
             this.imgStudentsLogo.Name = "imgStudentsLogo";
@@ -339,7 +364,7 @@
             // 
             // imgTeachersLogo
             // 
-            this.imgTeachersLogo.Image = global::SomerenUI.Properties.Resources.someren;
+            this.imgTeachersLogo.Image = ((System.Drawing.Image)(resources.GetObject("imgTeachersLogo.Image")));
             this.imgTeachersLogo.InitialImage = null;
             this.imgTeachersLogo.Location = new System.Drawing.Point(805, 0);
             this.imgTeachersLogo.Name = "imgTeachersLogo";
@@ -369,7 +394,7 @@
             // 
             // imgRoomsLogo
             // 
-            this.imgRoomsLogo.Image = global::SomerenUI.Properties.Resources.someren;
+            this.imgRoomsLogo.Image = ((System.Drawing.Image)(resources.GetObject("imgRoomsLogo.Image")));
             this.imgRoomsLogo.InitialImage = null;
             this.imgRoomsLogo.Location = new System.Drawing.Point(805, 0);
             this.imgRoomsLogo.Name = "imgRoomsLogo";
@@ -397,7 +422,7 @@
             this.Controls.Add(this.pnl_Rooms);
             this.Controls.Add(this.pnl_Teachers);
             this.Controls.Add(this.pnl_Students);
-            this.Controls.Add(this.pnl_DrankVoorraad);
+            this.Controls.Add(this.pnl_DrinkSupply);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "SomerenUI";
@@ -409,8 +434,8 @@
             this.pnl_Dashboard.ResumeLayout(false);
             this.pnl_Dashboard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboardLogo)).EndInit();
-            this.pnl_DrankVoorraad.ResumeLayout(false);
-            this.pnl_DrankVoorraad.PerformLayout();
+            this.pnl_DrinkSupply.ResumeLayout(false);
+            this.pnl_DrinkSupply.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgStudentsLogo)).EndInit();
             this.pnl_Students.ResumeLayout(false);
             this.pnl_Students.PerformLayout();
@@ -457,11 +482,14 @@
         private System.Windows.Forms.ColumnHeader Docentenkamer;
         private System.Windows.Forms.PictureBox imgRoomsLogo;
         private System.Windows.Forms.Label lblRooms;
-        private System.Windows.Forms.ToolStripMenuItem drankvoorraadToolStripMenuItem;
-        private System.Windows.Forms.Panel pnl_DrankVoorraad;
+        private System.Windows.Forms.Panel pnl_DrinkSupply;
         private System.Windows.Forms.PictureBox imgDashboardLogo;
         private System.Windows.Forms.ListView listViewDrankVoorraad;
         private System.Windows.Forms.Label lblDrankVoorraad;
+        private System.Windows.Forms.ToolStripMenuItem barToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem drinkSupplyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cashregisterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem revenueToolStripMenuItem;
     }
 }
 
