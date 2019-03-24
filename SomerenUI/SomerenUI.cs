@@ -38,6 +38,8 @@ namespace SomerenUI
                 imgStudentsLogo.Hide();
                 pnl_Rooms.Hide();
                 imgRoomsLogo.Hide();
+                pnl_DrinkSupply.Hide();
+                pnl_Revenue.Hide();
 
                 pnl_DrankVoorraad.Hide();
 
@@ -56,6 +58,8 @@ namespace SomerenUI
                 imgTeachersLogo.Hide();
                 pnl_Rooms.Hide();
                 imgRoomsLogo.Hide();
+                pnl_DrinkSupply.Hide();
+                pnl_Revenue.Hide();
 
                 pnl_DrankVoorraad.Hide();
 
@@ -86,6 +90,8 @@ namespace SomerenUI
                 imgStudentsLogo.Hide();
                 pnl_Rooms.Hide();
                 imgRoomsLogo.Hide();
+                pnl_DrinkSupply.Hide();
+                pnl_Revenue.Hide();
 
                 pnl_DrankVoorraad.Hide();
 
@@ -131,6 +137,8 @@ namespace SomerenUI
                 imgTeachersLogo.Hide();
                 pnl_Students.Hide();
                 imgStudentsLogo.Hide();
+                pnl_DrinkSupply.Hide();
+                pnl_Revenue.Hide();
 
                 pnl_DrankVoorraad.Hide();
 
@@ -153,7 +161,6 @@ namespace SomerenUI
                     li.SubItems.Add(r.Type.ToString());
                 }
             }
-
             else if (panelName == "DrankVoorraad")
             {
                 // hide all other panels
@@ -165,13 +172,14 @@ namespace SomerenUI
                 imgStudentsLogo.Hide();
                 pnl_Rooms.Hide();
                 imgRoomsLogo.Hide();
+                pnl_Revenue.Hide();
 
 
                 // show DrankVoorraad
                 pnl_DrankVoorraad.Show();
 
                 // fill the drank listview within the drank panel with a list of drank
-                SomerenLogic.Drank_Service drank_Service  = new SomerenLogic.Drank_Service();
+                SomerenLogic.Drank_Service drank_Service = new SomerenLogic.Drank_Service();
                 List<Drank> drankList = drank_Service.GetDrank();
 
                 // clear the listview before filling it again
@@ -194,6 +202,61 @@ namespace SomerenUI
                         li.SubItems.Add("Genoeg");
                     }
                 }
+            }
+            else if (panelName == "DrinkSupply")
+            {
+                // hide all other panels
+                pnl_Dashboard.Hide();
+                imgDashboardLogo.Hide();
+                pnl_Teachers.Hide();
+                imgTeachersLogo.Hide();
+                pnl_Students.Hide();
+                imgStudentsLogo.Hide();
+                pnl_Rooms.Hide();
+                imgRoomsLogo.Hide();
+                pnl_Revenue.Hide();
+
+
+                // show Rooms
+                pnl_DrinkSupply.Show();
+            }
+            else if (panelName == "Revenue")
+            {
+                pnl_Dashboard.Hide();
+                imgDashboardLogo.Hide();
+                pnl_Teachers.Hide();
+                imgTeachersLogo.Hide();
+                pnl_Students.Hide();
+                imgStudentsLogo.Hide();
+                pnl_Rooms.Hide();
+                imgRoomsLogo.Hide();
+                pnl_DrinkSupply.Hide();
+
+                pnl_Revenue.Show();
+
+                SomerenLogic.Revenue_Service revenueService = new SomerenLogic.Revenue_Service();
+                List<Revenue> revenueList = revenueService.GetRevenue();
+
+                int totalSales = 0, totalRevenue = 0, numberOfStudents = 0;
+                
+                List<int> studentList = new List<int>();
+
+                foreach (SomerenModel.Revenue r in revenueList)
+                {
+                    totalSales++;
+                    totalRevenue += r.Price; 
+                    
+                    if (studentList.IndexOf(r.StudentNumber) < 0)
+                    {
+                        studentList.Add(r.StudentNumber);
+                        numberOfStudents++;
+                    }
+                }
+
+                ListViewItem list = new ListViewItem(totalSales.ToString());
+                list.SubItems.Add(totalRevenue.ToString());
+                list.SubItems.Add(numberOfStudents.ToString());
+                listViewRevenue.Items.Add(list);
             }
         }
 
@@ -231,9 +294,19 @@ namespace SomerenUI
             showPanel("Rooms");
         }
 
+        private void drinkSupplyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("DrinkSupply");
+        }
+
+        private void revenueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Revenue");
+        }
         private void drankvoorraadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("DrankVoorraad");
         }
+
     }
 }
