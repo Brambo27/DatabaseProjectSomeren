@@ -38,6 +38,7 @@ namespace SomerenUI
                 imgStudentsLogo.Hide();
                 pnl_Rooms.Hide();
                 imgRoomsLogo.Hide();
+
                 pnl_DrankVoorraad.Hide();
 
 
@@ -55,6 +56,7 @@ namespace SomerenUI
                 imgTeachersLogo.Hide();
                 pnl_Rooms.Hide();
                 imgRoomsLogo.Hide();
+
                 pnl_DrankVoorraad.Hide();
 
 
@@ -84,6 +86,7 @@ namespace SomerenUI
                 imgStudentsLogo.Hide();
                 pnl_Rooms.Hide();
                 imgRoomsLogo.Hide();
+
                 pnl_DrankVoorraad.Hide();
 
 
@@ -128,6 +131,7 @@ namespace SomerenUI
                 imgTeachersLogo.Hide();
                 pnl_Students.Hide();
                 imgStudentsLogo.Hide();
+
                 pnl_DrankVoorraad.Hide();
 
                 // show Rooms
@@ -149,6 +153,7 @@ namespace SomerenUI
                     li.SubItems.Add(r.Type.ToString());
                 }
             }
+
             else if (panelName == "DrankVoorraad")
             {
                 // hide all other panels
@@ -162,9 +167,8 @@ namespace SomerenUI
                 imgRoomsLogo.Hide();
 
 
-                // show Rooms
+                // show DrankVoorraad
                 pnl_DrankVoorraad.Show();
-
 
                 // fill the drank listview within the drank panel with a list of drank
                 SomerenLogic.Drank_Service drank_Service  = new SomerenLogic.Drank_Service();
