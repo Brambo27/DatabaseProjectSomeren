@@ -49,8 +49,6 @@
             this.pnl_Revenue = new System.Windows.Forms.Panel();
             this.lbl_endDate = new System.Windows.Forms.Label();
             this.lbl_startDate = new System.Windows.Forms.Label();
-            this.monthCalendarEndDate = new System.Windows.Forms.MonthCalendar();
-            this.monthCalendarStartDate = new System.Windows.Forms.MonthCalendar();
             this.lbl_Revenue = new System.Windows.Forms.Label();
             this.listViewRevenue = new System.Windows.Forms.ListView();
             this.pnl_DrinkSupply = new System.Windows.Forms.Panel();
@@ -76,6 +74,11 @@
             this.pnl_Rooms = new System.Windows.Forms.Panel();
             this.imgRoomsLogo = new System.Windows.Forms.PictureBox();
             this.lblRooms = new System.Windows.Forms.Label();
+            this.Sales = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Revenue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.NumberOfCustomers = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dateTimePickerStartDate = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerEndDate = new System.Windows.Forms.DateTimePicker();
             KamerNummer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
@@ -180,21 +183,21 @@
             // drinkSupplyToolStripMenuItem
             // 
             this.drinkSupplyToolStripMenuItem.Name = "drinkSupplyToolStripMenuItem";
-            this.drinkSupplyToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.drinkSupplyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.drinkSupplyToolStripMenuItem.Text = "Drink supply";
             this.drinkSupplyToolStripMenuItem.Click += new System.EventHandler(this.drinkSupplyToolStripMenuItem_Click);
             // 
             // cashregisterToolStripMenuItem
             // 
             this.cashregisterToolStripMenuItem.Name = "cashregisterToolStripMenuItem";
-            this.cashregisterToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.cashregisterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cashregisterToolStripMenuItem.Text = "Cashregister";
             // 
             // revenueToolStripMenuItem
             // 
             this.revenueToolStripMenuItem.Name = "revenueToolStripMenuItem";
             this.revenueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.revenueToolStripMenuItem.Text = "Revenue";
+            this.revenueToolStripMenuItem.Text = "Revenue report";
             this.revenueToolStripMenuItem.Click += new System.EventHandler(this.revenueToolStripMenuItem_Click);
             // 
             // pnl_Dashboard
@@ -228,10 +231,10 @@
             // 
             // pnl_Revenue
             // 
+            this.pnl_Revenue.Controls.Add(this.dateTimePickerEndDate);
+            this.pnl_Revenue.Controls.Add(this.dateTimePickerStartDate);
             this.pnl_Revenue.Controls.Add(this.lbl_endDate);
             this.pnl_Revenue.Controls.Add(this.lbl_startDate);
-            this.pnl_Revenue.Controls.Add(this.monthCalendarEndDate);
-            this.pnl_Revenue.Controls.Add(this.monthCalendarStartDate);
             this.pnl_Revenue.Controls.Add(this.lbl_Revenue);
             this.pnl_Revenue.Controls.Add(this.listViewRevenue);
             this.pnl_Revenue.Location = new System.Drawing.Point(15, 30);
@@ -242,7 +245,7 @@
             // lbl_endDate
             // 
             this.lbl_endDate.AutoSize = true;
-            this.lbl_endDate.Location = new System.Drawing.Point(243, 48);
+            this.lbl_endDate.Location = new System.Drawing.Point(39, 126);
             this.lbl_endDate.Name = "lbl_endDate";
             this.lbl_endDate.Size = new System.Drawing.Size(82, 13);
             this.lbl_endDate.TabIndex = 6;
@@ -251,23 +254,11 @@
             // lbl_startDate
             // 
             this.lbl_startDate.AutoSize = true;
-            this.lbl_startDate.Location = new System.Drawing.Point(34, 48);
+            this.lbl_startDate.Location = new System.Drawing.Point(39, 62);
             this.lbl_startDate.Name = "lbl_startDate";
             this.lbl_startDate.Size = new System.Drawing.Size(84, 13);
             this.lbl_startDate.TabIndex = 5;
             this.lbl_startDate.Text = "Select start date";
-            // 
-            // monthCalendarEndDate
-            // 
-            this.monthCalendarEndDate.Location = new System.Drawing.Point(246, 70);
-            this.monthCalendarEndDate.Name = "monthCalendarEndDate";
-            this.monthCalendarEndDate.TabIndex = 4;
-            // 
-            // monthCalendarStartDate
-            // 
-            this.monthCalendarStartDate.Location = new System.Drawing.Point(37, 70);
-            this.monthCalendarStartDate.Name = "monthCalendarStartDate";
-            this.monthCalendarStartDate.TabIndex = 3;
             // 
             // lbl_Revenue
             // 
@@ -281,11 +272,16 @@
             // 
             // listViewRevenue
             // 
+            this.listViewRevenue.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Sales,
+            this.Revenue,
+            this.NumberOfCustomers});
             this.listViewRevenue.Location = new System.Drawing.Point(37, 238);
             this.listViewRevenue.Name = "listViewRevenue";
             this.listViewRevenue.Size = new System.Drawing.Size(380, 195);
             this.listViewRevenue.TabIndex = 0;
             this.listViewRevenue.UseCompatibleStateImageBehavior = false;
+            this.listViewRevenue.View = System.Windows.Forms.View.Details;
             // 
             // pnl_DrinkSupply
             // 
@@ -483,6 +479,42 @@
             this.lblRooms.TabIndex = 1;
             this.lblRooms.Text = "Room";
             // 
+            // Sales
+            // 
+            this.Sales.Text = "Sales";
+            this.Sales.Width = 117;
+            // 
+            // Revenue
+            // 
+            this.Revenue.Text = "Revenue";
+            this.Revenue.Width = 105;
+            // 
+            // NumberOfCustomers
+            // 
+            this.NumberOfCustomers.Text = "Number of customers";
+            this.NumberOfCustomers.Width = 148;
+            // 
+            // dateTimePickerStartDate
+            // 
+            this.dateTimePickerStartDate.Location = new System.Drawing.Point(37, 78);
+            this.dateTimePickerStartDate.MaxDate = new System.DateTime(2019, 5, 14, 0, 0, 0, 0);
+            this.dateTimePickerStartDate.MinDate = new System.DateTime(2019, 5, 13, 0, 0, 0, 0);
+            this.dateTimePickerStartDate.Name = "dateTimePickerStartDate";
+            this.dateTimePickerStartDate.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerStartDate.TabIndex = 7;
+            this.dateTimePickerStartDate.Value = new System.DateTime(2019, 5, 13, 0, 0, 0, 0);
+            this.dateTimePickerStartDate.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // dateTimePickerEndDate
+            // 
+            this.dateTimePickerEndDate.Location = new System.Drawing.Point(37, 146);
+            this.dateTimePickerEndDate.MaxDate = new System.DateTime(2019, 5, 14, 0, 0, 0, 0);
+            this.dateTimePickerEndDate.MinDate = new System.DateTime(2019, 5, 13, 0, 0, 0, 0);
+            this.dateTimePickerEndDate.Name = "dateTimePickerEndDate";
+            this.dateTimePickerEndDate.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerEndDate.TabIndex = 8;
+            this.dateTimePickerEndDate.Value = new System.DateTime(2019, 5, 13, 0, 0, 0, 0);
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -568,8 +600,11 @@
         private System.Windows.Forms.ListView listViewRevenue;
         private System.Windows.Forms.Label lbl_endDate;
         private System.Windows.Forms.Label lbl_startDate;
-        private System.Windows.Forms.MonthCalendar monthCalendarEndDate;
-        private System.Windows.Forms.MonthCalendar monthCalendarStartDate;
+        private System.Windows.Forms.ColumnHeader Sales;
+        private System.Windows.Forms.ColumnHeader Revenue;
+        private System.Windows.Forms.ColumnHeader NumberOfCustomers;
+        private System.Windows.Forms.DateTimePicker dateTimePickerStartDate;
+        private System.Windows.Forms.DateTimePicker dateTimePickerEndDate;
     }
 }
 

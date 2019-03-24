@@ -183,6 +183,32 @@ namespace SomerenUI
                 pnl_DrinkSupply.Hide();
 
                 pnl_Revenue.Show();
+
+                SomerenLogic.Revenue_Service revenueService = new SomerenLogic.Revenue_Service();
+                List<Revenue> revenueList = revenueService.GetRevenue();
+
+                int totalSales = 0, totalRevenue = 0, numberOfStudents = 0;
+                
+                List<int> studentList = new List<int>();
+
+                foreach (SomerenModel.Revenue r in revenueList)
+                {
+                    totalSales++;
+                    totalRevenue += r.Price; 
+                    
+                    if (studentList.IndexOf(r.StudentNumber) < 0)
+                    {
+                        studentList.Add(r.StudentNumber);
+                        numberOfStudents++;
+                    }
+                }
+
+                ListViewItem list = new ListViewItem(totalSales.ToString());
+                list.SubItems.Add(totalRevenue.ToString());
+                list.SubItems.Add(numberOfStudents.ToString());
+                listViewRevenue.Items.Add(list);
+
+
             }
         }
 
@@ -228,6 +254,11 @@ namespace SomerenUI
         private void revenueToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Revenue");
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
