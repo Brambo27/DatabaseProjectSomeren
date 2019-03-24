@@ -39,6 +39,7 @@ namespace SomerenUI
                 pnl_Rooms.Hide();
                 imgRoomsLogo.Hide();
                 pnl_DrinkSupply.Hide();
+                pnl_Revenue.Hide();
 
 
 
@@ -56,6 +57,7 @@ namespace SomerenUI
                 pnl_Rooms.Hide();
                 imgRoomsLogo.Hide();
                 pnl_DrinkSupply.Hide();
+                pnl_Revenue.Hide();
 
 
                 // show students
@@ -85,6 +87,7 @@ namespace SomerenUI
                 pnl_Rooms.Hide();
                 imgRoomsLogo.Hide();
                 pnl_DrinkSupply.Hide();
+                pnl_Revenue.Hide();
 
 
                 // show Teachers
@@ -129,6 +132,7 @@ namespace SomerenUI
                 pnl_Students.Hide();
                 imgStudentsLogo.Hide();
                 pnl_DrinkSupply.Hide();
+                pnl_Revenue.Hide();
 
                 // show Rooms
                 pnl_Rooms.Show();
@@ -160,10 +164,25 @@ namespace SomerenUI
                 imgStudentsLogo.Hide();
                 pnl_Rooms.Hide();
                 imgRoomsLogo.Hide();
+                pnl_Revenue.Hide();
 
 
                 // show Rooms
                 pnl_DrinkSupply.Show();
+            }
+            else if (panelName == "Revenue")
+            {
+                pnl_Dashboard.Hide();
+                imgDashboardLogo.Hide();
+                pnl_Teachers.Hide();
+                imgTeachersLogo.Hide();
+                pnl_Students.Hide();
+                imgStudentsLogo.Hide();
+                pnl_Rooms.Hide();
+                imgRoomsLogo.Hide();
+                pnl_DrinkSupply.Hide();
+
+                pnl_Revenue.Show();
             }
         }
 
@@ -204,6 +223,11 @@ namespace SomerenUI
         private void drinkSupplyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("DrinkSupply");
+        }
+
+        private void revenueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Revenue");
         }
     }
 }

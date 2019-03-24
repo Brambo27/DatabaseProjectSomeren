@@ -46,6 +46,13 @@
             this.pnl_Dashboard = new System.Windows.Forms.Panel();
             this.imgDashboardLogo = new System.Windows.Forms.PictureBox();
             this.lbl_Dashboard = new System.Windows.Forms.Label();
+            this.pnl_Revenue = new System.Windows.Forms.Panel();
+            this.lbl_endDate = new System.Windows.Forms.Label();
+            this.lbl_startDate = new System.Windows.Forms.Label();
+            this.monthCalendarEndDate = new System.Windows.Forms.MonthCalendar();
+            this.monthCalendarStartDate = new System.Windows.Forms.MonthCalendar();
+            this.lbl_Revenue = new System.Windows.Forms.Label();
+            this.listViewRevenue = new System.Windows.Forms.ListView();
             this.pnl_DrinkSupply = new System.Windows.Forms.Panel();
             this.lblDrankVoorraad = new System.Windows.Forms.Label();
             this.listViewDrankVoorraad = new System.Windows.Forms.ListView();
@@ -73,6 +80,7 @@
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboardLogo)).BeginInit();
+            this.pnl_Revenue.SuspendLayout();
             this.pnl_DrinkSupply.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgStudentsLogo)).BeginInit();
             this.pnl_Students.SuspendLayout();
@@ -172,14 +180,14 @@
             // drinkSupplyToolStripMenuItem
             // 
             this.drinkSupplyToolStripMenuItem.Name = "drinkSupplyToolStripMenuItem";
-            this.drinkSupplyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.drinkSupplyToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.drinkSupplyToolStripMenuItem.Text = "Drink supply";
             this.drinkSupplyToolStripMenuItem.Click += new System.EventHandler(this.drinkSupplyToolStripMenuItem_Click);
             // 
             // cashregisterToolStripMenuItem
             // 
             this.cashregisterToolStripMenuItem.Name = "cashregisterToolStripMenuItem";
-            this.cashregisterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cashregisterToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.cashregisterToolStripMenuItem.Text = "Cashregister";
             // 
             // revenueToolStripMenuItem
@@ -187,12 +195,13 @@
             this.revenueToolStripMenuItem.Name = "revenueToolStripMenuItem";
             this.revenueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.revenueToolStripMenuItem.Text = "Revenue";
+            this.revenueToolStripMenuItem.Click += new System.EventHandler(this.revenueToolStripMenuItem_Click);
             // 
             // pnl_Dashboard
             // 
             this.pnl_Dashboard.Controls.Add(this.imgDashboardLogo);
             this.pnl_Dashboard.Controls.Add(this.lbl_Dashboard);
-            this.pnl_Dashboard.Location = new System.Drawing.Point(15, 30);
+            this.pnl_Dashboard.Location = new System.Drawing.Point(0, 0);
             this.pnl_Dashboard.Name = "pnl_Dashboard";
             this.pnl_Dashboard.Size = new System.Drawing.Size(940, 470);
             this.pnl_Dashboard.TabIndex = 2;
@@ -216,6 +225,67 @@
             this.lbl_Dashboard.Size = new System.Drawing.Size(185, 13);
             this.lbl_Dashboard.TabIndex = 1;
             this.lbl_Dashboard.Text = "Welcome to the Someren Application!";
+            // 
+            // pnl_Revenue
+            // 
+            this.pnl_Revenue.Controls.Add(this.lbl_endDate);
+            this.pnl_Revenue.Controls.Add(this.lbl_startDate);
+            this.pnl_Revenue.Controls.Add(this.monthCalendarEndDate);
+            this.pnl_Revenue.Controls.Add(this.monthCalendarStartDate);
+            this.pnl_Revenue.Controls.Add(this.lbl_Revenue);
+            this.pnl_Revenue.Controls.Add(this.listViewRevenue);
+            this.pnl_Revenue.Location = new System.Drawing.Point(15, 30);
+            this.pnl_Revenue.Name = "pnl_Revenue";
+            this.pnl_Revenue.Size = new System.Drawing.Size(940, 470);
+            this.pnl_Revenue.TabIndex = 3;
+            // 
+            // lbl_endDate
+            // 
+            this.lbl_endDate.AutoSize = true;
+            this.lbl_endDate.Location = new System.Drawing.Point(243, 48);
+            this.lbl_endDate.Name = "lbl_endDate";
+            this.lbl_endDate.Size = new System.Drawing.Size(82, 13);
+            this.lbl_endDate.TabIndex = 6;
+            this.lbl_endDate.Text = "Select end date";
+            // 
+            // lbl_startDate
+            // 
+            this.lbl_startDate.AutoSize = true;
+            this.lbl_startDate.Location = new System.Drawing.Point(34, 48);
+            this.lbl_startDate.Name = "lbl_startDate";
+            this.lbl_startDate.Size = new System.Drawing.Size(84, 13);
+            this.lbl_startDate.TabIndex = 5;
+            this.lbl_startDate.Text = "Select start date";
+            // 
+            // monthCalendarEndDate
+            // 
+            this.monthCalendarEndDate.Location = new System.Drawing.Point(246, 70);
+            this.monthCalendarEndDate.Name = "monthCalendarEndDate";
+            this.monthCalendarEndDate.TabIndex = 4;
+            // 
+            // monthCalendarStartDate
+            // 
+            this.monthCalendarStartDate.Location = new System.Drawing.Point(37, 70);
+            this.monthCalendarStartDate.Name = "monthCalendarStartDate";
+            this.monthCalendarStartDate.TabIndex = 3;
+            // 
+            // lbl_Revenue
+            // 
+            this.lbl_Revenue.AutoSize = true;
+            this.lbl_Revenue.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Revenue.Location = new System.Drawing.Point(32, 10);
+            this.lbl_Revenue.Name = "lbl_Revenue";
+            this.lbl_Revenue.Size = new System.Drawing.Size(109, 29);
+            this.lbl_Revenue.TabIndex = 1;
+            this.lbl_Revenue.Text = "Revenue";
+            // 
+            // listViewRevenue
+            // 
+            this.listViewRevenue.Location = new System.Drawing.Point(37, 238);
+            this.listViewRevenue.Name = "listViewRevenue";
+            this.listViewRevenue.Size = new System.Drawing.Size(380, 195);
+            this.listViewRevenue.TabIndex = 0;
+            this.listViewRevenue.UseCompatibleStateImageBehavior = false;
             // 
             // pnl_DrinkSupply
             // 
@@ -385,6 +455,7 @@
             // pnl_Rooms
             // 
             this.pnl_Rooms.Controls.Add(this.listViewRooms);
+            this.pnl_Rooms.Controls.Add(this.pnl_Dashboard);
             this.pnl_Rooms.Controls.Add(this.imgRoomsLogo);
             this.pnl_Rooms.Controls.Add(this.lblRooms);
             this.pnl_Rooms.Location = new System.Drawing.Point(15, 30);
@@ -417,8 +488,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 505);
+            this.Controls.Add(this.pnl_Revenue);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.pnl_Dashboard);
             this.Controls.Add(this.pnl_Rooms);
             this.Controls.Add(this.pnl_Teachers);
             this.Controls.Add(this.pnl_Students);
@@ -434,6 +505,8 @@
             this.pnl_Dashboard.ResumeLayout(false);
             this.pnl_Dashboard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboardLogo)).EndInit();
+            this.pnl_Revenue.ResumeLayout(false);
+            this.pnl_Revenue.PerformLayout();
             this.pnl_DrinkSupply.ResumeLayout(false);
             this.pnl_DrinkSupply.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgStudentsLogo)).EndInit();
@@ -490,6 +563,13 @@
         private System.Windows.Forms.ToolStripMenuItem drinkSupplyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cashregisterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem revenueToolStripMenuItem;
+        private System.Windows.Forms.Panel pnl_Revenue;
+        private System.Windows.Forms.Label lbl_Revenue;
+        private System.Windows.Forms.ListView listViewRevenue;
+        private System.Windows.Forms.Label lbl_endDate;
+        private System.Windows.Forms.Label lbl_startDate;
+        private System.Windows.Forms.MonthCalendar monthCalendarEndDate;
+        private System.Windows.Forms.MonthCalendar monthCalendarStartDate;
     }
 }
 
