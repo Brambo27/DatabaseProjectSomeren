@@ -234,29 +234,48 @@ namespace SomerenUI
 
                 pnl_Revenue.Show();
 
+                DateTime startDate = dateTimePickerStartDate.Value;
+                DateTime endDate = dateTimePickerEndDate.Value;
+
+                DateTime startDateOnly = startDate.Date;
+                DateTime endDateOnly = endDate.Date;
+
                 SomerenLogic.Revenue_Service revenueService = new SomerenLogic.Revenue_Service();
                 List<Revenue> revenueList = revenueService.GetRevenue();
 
-                int totalSales = 0, totalRevenue = 0, numberOfStudents = 0;
-                
-                List<int> studentList = new List<int>();
+                listViewRevenue.Items.Clear();
 
-                foreach (SomerenModel.Revenue r in revenueList)
+                if (startDate <= endDate)
                 {
-                    totalSales++;
-                    totalRevenue += r.Price; 
-                    
-                    if (studentList.IndexOf(r.StudentNumber) < 0)
-                    {
-                        studentList.Add(r.StudentNumber);
-                        numberOfStudents++;
-                    }
-                }
 
-                ListViewItem list = new ListViewItem(totalSales.ToString());
-                list.SubItems.Add(totalRevenue.ToString());
-                list.SubItems.Add(numberOfStudents.ToString());
-                listViewRevenue.Items.Add(list);
+                    int totalSales = 0, totalRevenue = 0, numberOfStudents = 0;
+
+                    List<int> studentList = new List<int>();
+
+                    foreach (SomerenModel.Revenue r in revenueList)
+                    {
+                        if (startDateOnly == r.Date || endDateOnly == r.Date)
+                        {
+                            totalSales++;
+                            totalRevenue += r.Price;
+
+                            if (studentList.IndexOf(r.StudentNumber) < 0)
+                            {
+                                studentList.Add(r.StudentNumber);
+                                numberOfStudents++;
+                            }
+                        }
+                    }
+
+                    ListViewItem list = new ListViewItem(totalSales.ToString());
+                    list.SubItems.Add(totalRevenue.ToString());
+                    list.SubItems.Add(numberOfStudents.ToString());
+                    listViewRevenue.Items.Add(list);
+                }
+                else
+                {
+                    MessageBox.Show("Start date can't be higher than end date", "Error");
+                }
             }
             else if (panelName == "CashRegister")
             {
@@ -418,6 +437,11 @@ namespace SomerenUI
 
             
             showPanel("DrinkSupply");
+        }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            showPanel("Revenue");
         }
     }
 }
