@@ -32,7 +32,7 @@ namespace SomerenUI
         {
             System.Windows.Forms.ColumnHeader KamerNummer;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SomerenUI));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dashboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +56,6 @@ namespace SomerenUI
             this.Voorraad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Prijs = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.VoorraadStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lblDrankVoorraad = new System.Windows.Forms.Label();
             this.pnl_Revenue = new System.Windows.Forms.Panel();
             this.dateTimePickerStartDate = new System.Windows.Forms.DateTimePicker();
             this.btn_Refresh = new System.Windows.Forms.Button();
@@ -69,6 +68,12 @@ namespace SomerenUI
             this.Revenue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NumberOfCustomers = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnl_DrinkSupply = new System.Windows.Forms.Panel();
+            this.lblNieuwPrijs = new System.Windows.Forms.Label();
+            this.lblNieuwVoorraad = new System.Windows.Forms.Label();
+            this.lblNieuwNaam = new System.Windows.Forms.Label();
+            this.txtNieuwVoorraad = new System.Windows.Forms.TextBox();
+            this.txtNieuwPrijs = new System.Windows.Forms.TextBox();
+            this.txtNieuwNaam = new System.Windows.Forms.TextBox();
             this.btnNieuwDrank = new System.Windows.Forms.Button();
             this.btnNaamAanpassen = new System.Windows.Forms.Button();
             this.txtAanpassenValue = new System.Windows.Forms.TextBox();
@@ -103,7 +108,8 @@ namespace SomerenUI
             this.listViewCRStudents = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnNieuwDrank = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnPrijsAanpassen = new System.Windows.Forms.Button();
             KamerNummer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
@@ -133,7 +139,6 @@ namespace SomerenUI
             this.lecturersToolStripMenuItem,
             this.activitiesToolStripMenuItem,
             this.roomsToolStripMenuItem,
-            this.barToolStripMenuItem,
             this.barToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -262,7 +267,7 @@ namespace SomerenUI
             // 
             this.lblDrankVoorraad.AutoSize = true;
             this.lblDrankVoorraad.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDrankVoorraad.Location = new System.Drawing.Point(10, 10);
+            this.lblDrankVoorraad.Location = new System.Drawing.Point(11, 11);
             this.lblDrankVoorraad.Name = "lblDrankVoorraad";
             this.lblDrankVoorraad.Size = new System.Drawing.Size(181, 29);
             this.lblDrankVoorraad.TabIndex = 3;
@@ -276,9 +281,10 @@ namespace SomerenUI
             this.Voorraad,
             this.Prijs,
             this.VoorraadStatus});
+            this.listViewDrankVoorraad.HideSelection = false;
             this.listViewDrankVoorraad.Location = new System.Drawing.Point(16, 41);
             this.listViewDrankVoorraad.Name = "listViewDrankVoorraad";
-            this.listViewDrankVoorraad.Size = new System.Drawing.Size(766, 307);
+            this.listViewDrankVoorraad.Size = new System.Drawing.Size(483, 307);
             this.listViewDrankVoorraad.TabIndex = 0;
             this.listViewDrankVoorraad.UseCompatibleStateImageBehavior = false;
             this.listViewDrankVoorraad.View = System.Windows.Forms.View.Details;
@@ -311,16 +317,6 @@ namespace SomerenUI
             this.VoorraadStatus.DisplayIndex = 0;
             this.VoorraadStatus.Text = "X";
             // 
-            // lblDrankVoorraad
-            // 
-            this.lblDrankVoorraad.AutoSize = true;
-            this.lblDrankVoorraad.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDrankVoorraad.Location = new System.Drawing.Point(11, 11);
-            this.lblDrankVoorraad.Name = "lblDrankVoorraad";
-            this.lblDrankVoorraad.Size = new System.Drawing.Size(181, 29);
-            this.lblDrankVoorraad.TabIndex = 3;
-            this.lblDrankVoorraad.Text = "Drank Voorraad";
-            // 
             // pnl_Revenue
             // 
             this.pnl_Revenue.Controls.Add(this.dateTimePickerStartDate);
@@ -335,29 +331,8 @@ namespace SomerenUI
             this.pnl_Revenue.Size = new System.Drawing.Size(940, 470);
             this.pnl_Revenue.TabIndex = 3;
             // 
-            // dateTimePickerEndDate
-            // 
-            this.dateTimePickerEndDate.Location = new System.Drawing.Point(37, 146);
-            this.dateTimePickerEndDate.MaxDate = new System.DateTime(2019, 5, 14, 0, 0, 0, 0);
-            this.dateTimePickerEndDate.MinDate = new System.DateTime(2019, 5, 13, 0, 0, 0, 0);
-            this.dateTimePickerEndDate.Name = "dateTimePickerEndDate";
-            this.dateTimePickerEndDate.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePickerEndDate.Location = new System.Drawing.Point(49, 180);
-            this.dateTimePickerEndDate.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePickerEndDate.MaxDate = new System.DateTime(2019, 5, 14, 0, 0, 0, 0);
-            this.dateTimePickerEndDate.MinDate = new System.DateTime(2019, 5, 13, 0, 0, 0, 0);
-            this.dateTimePickerEndDate.Name = "dateTimePickerEndDate";
-            this.dateTimePickerEndDate.Size = new System.Drawing.Size(265, 22);
-            this.dateTimePickerEndDate.TabIndex = 8;
-            this.dateTimePickerEndDate.Value = new System.DateTime(2019, 5, 13, 0, 0, 0, 0);
-            // 
             // dateTimePickerStartDate
             // 
-            this.dateTimePickerStartDate.Location = new System.Drawing.Point(37, 78);
-            this.dateTimePickerStartDate.MaxDate = new System.DateTime(2019, 5, 14, 0, 0, 0, 0);
-            this.dateTimePickerStartDate.MinDate = new System.DateTime(2019, 5, 13, 0, 0, 0, 0);
-            this.dateTimePickerStartDate.Name = "dateTimePickerStartDate";
-            this.dateTimePickerStartDate.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerStartDate.Location = new System.Drawing.Point(49, 96);
             this.dateTimePickerStartDate.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerStartDate.MaxDate = new System.DateTime(2019, 5, 14, 0, 0, 0, 0);
@@ -381,6 +356,7 @@ namespace SomerenUI
             // dateTimePickerEndDate
             // 
             this.dateTimePickerEndDate.Location = new System.Drawing.Point(37, 146);
+            this.dateTimePickerEndDate.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerEndDate.MaxDate = new System.DateTime(2019, 5, 14, 0, 0, 0, 0);
             this.dateTimePickerEndDate.MinDate = new System.DateTime(2019, 5, 13, 0, 0, 0, 0);
             this.dateTimePickerEndDate.Name = "dateTimePickerEndDate";
@@ -431,21 +407,6 @@ namespace SomerenUI
             // 
             // Sales
             // 
-            this.Sales.Text = "Number of Sales";
-            this.Sales.Width = 117;
-            // 
-            // Revenue
-            // 
-            this.Revenue.Text = "Revenue";
-            this.Revenue.Width = 131;
-            // 
-            // NumberOfCustomers
-            // 
-            this.NumberOfCustomers.Text = "Number of customers";
-            this.NumberOfCustomers.Width = 148;
-            // 
-            // pnl_DrinkSupply
-            // 
             this.Sales.Text = "Sales";
             this.Sales.Width = 117;
             // 
@@ -461,6 +422,14 @@ namespace SomerenUI
             // 
             // pnl_DrinkSupply
             // 
+            this.pnl_DrinkSupply.Controls.Add(this.btnPrijsAanpassen);
+            this.pnl_DrinkSupply.Controls.Add(this.label1);
+            this.pnl_DrinkSupply.Controls.Add(this.lblNieuwPrijs);
+            this.pnl_DrinkSupply.Controls.Add(this.lblNieuwVoorraad);
+            this.pnl_DrinkSupply.Controls.Add(this.lblNieuwNaam);
+            this.pnl_DrinkSupply.Controls.Add(this.txtNieuwVoorraad);
+            this.pnl_DrinkSupply.Controls.Add(this.txtNieuwPrijs);
+            this.pnl_DrinkSupply.Controls.Add(this.txtNieuwNaam);
             this.pnl_DrinkSupply.Controls.Add(this.btnNieuwDrank);
             this.pnl_DrinkSupply.Controls.Add(this.btnNaamAanpassen);
             this.pnl_DrinkSupply.Controls.Add(this.txtAanpassenValue);
@@ -472,22 +441,71 @@ namespace SomerenUI
             this.pnl_DrinkSupply.Size = new System.Drawing.Size(940, 470);
             this.pnl_DrinkSupply.TabIndex = 8;
             // 
+            // lblNieuwPrijs
+            // 
+            this.lblNieuwPrijs.AutoSize = true;
+            this.lblNieuwPrijs.Location = new System.Drawing.Point(388, 384);
+            this.lblNieuwPrijs.Name = "lblNieuwPrijs";
+            this.lblNieuwPrijs.Size = new System.Drawing.Size(29, 13);
+            this.lblNieuwPrijs.TabIndex = 20;
+            this.lblNieuwPrijs.Text = "Prijs:";
+            // 
+            // lblNieuwVoorraad
+            // 
+            this.lblNieuwVoorraad.AutoSize = true;
+            this.lblNieuwVoorraad.Location = new System.Drawing.Point(196, 384);
+            this.lblNieuwVoorraad.Name = "lblNieuwVoorraad";
+            this.lblNieuwVoorraad.Size = new System.Drawing.Size(53, 13);
+            this.lblNieuwVoorraad.TabIndex = 19;
+            this.lblNieuwVoorraad.Text = "Voorraad:";
+            // 
+            // lblNieuwNaam
+            // 
+            this.lblNieuwNaam.AutoSize = true;
+            this.lblNieuwNaam.Location = new System.Drawing.Point(13, 381);
+            this.lblNieuwNaam.Name = "lblNieuwNaam";
+            this.lblNieuwNaam.Size = new System.Drawing.Size(38, 13);
+            this.lblNieuwNaam.TabIndex = 17;
+            this.lblNieuwNaam.Text = "Naam:";
+            // 
+            // txtNieuwVoorraad
+            // 
+            this.txtNieuwVoorraad.Location = new System.Drawing.Point(255, 381);
+            this.txtNieuwVoorraad.Name = "txtNieuwVoorraad";
+            this.txtNieuwVoorraad.Size = new System.Drawing.Size(100, 20);
+            this.txtNieuwVoorraad.TabIndex = 15;
+            // 
+            // txtNieuwPrijs
+            // 
+            this.txtNieuwPrijs.Location = new System.Drawing.Point(423, 381);
+            this.txtNieuwPrijs.Name = "txtNieuwPrijs";
+            this.txtNieuwPrijs.Size = new System.Drawing.Size(100, 20);
+            this.txtNieuwPrijs.TabIndex = 14;
+            // 
+            // txtNieuwNaam
+            // 
+            this.txtNieuwNaam.Location = new System.Drawing.Point(57, 381);
+            this.txtNieuwNaam.Name = "txtNieuwNaam";
+            this.txtNieuwNaam.Size = new System.Drawing.Size(100, 20);
+            this.txtNieuwNaam.TabIndex = 13;
+            // 
             // btnNieuwDrank
             // 
-            this.btnNieuwDrank.Location = new System.Drawing.Point(786, 266);
+            this.btnNieuwDrank.Location = new System.Drawing.Point(736, 381);
             this.btnNieuwDrank.Margin = new System.Windows.Forms.Padding(2);
             this.btnNieuwDrank.Name = "btnNieuwDrank";
-            this.btnNieuwDrank.Size = new System.Drawing.Size(148, 67);
+            this.btnNieuwDrank.Size = new System.Drawing.Size(198, 83);
             this.btnNieuwDrank.TabIndex = 12;
             this.btnNieuwDrank.Text = "Nieuw drankje";
             this.btnNieuwDrank.UseVisualStyleBackColor = true;
+            this.btnNieuwDrank.Click += new System.EventHandler(this.btnNieuwDrank_Click);
             // 
             // btnNaamAanpassen
             // 
-            this.btnNaamAanpassen.Location = new System.Drawing.Point(786, 166);
+            this.btnNaamAanpassen.Location = new System.Drawing.Point(610, 94);
             this.btnNaamAanpassen.Margin = new System.Windows.Forms.Padding(2);
             this.btnNaamAanpassen.Name = "btnNaamAanpassen";
-            this.btnNaamAanpassen.Size = new System.Drawing.Size(148, 73);
+            this.btnNaamAanpassen.Size = new System.Drawing.Size(79, 72);
             this.btnNaamAanpassen.TabIndex = 11;
             this.btnNaamAanpassen.Text = "Naam Aanpassen";
             this.btnNaamAanpassen.UseVisualStyleBackColor = true;
@@ -495,7 +513,7 @@ namespace SomerenUI
             // 
             // txtAanpassenValue
             // 
-            this.txtAanpassenValue.Location = new System.Drawing.Point(786, 128);
+            this.txtAanpassenValue.Location = new System.Drawing.Point(610, 43);
             this.txtAanpassenValue.Margin = new System.Windows.Forms.Padding(2);
             this.txtAanpassenValue.Name = "txtAanpassenValue";
             this.txtAanpassenValue.Size = new System.Drawing.Size(150, 20);
@@ -503,10 +521,10 @@ namespace SomerenUI
             // 
             // btnVoorraadAanpassen
             // 
-            this.btnVoorraadAanpassen.Location = new System.Drawing.Point(786, 42);
+            this.btnVoorraadAanpassen.Location = new System.Drawing.Point(510, 94);
             this.btnVoorraadAanpassen.Margin = new System.Windows.Forms.Padding(2);
             this.btnVoorraadAanpassen.Name = "btnVoorraadAanpassen";
-            this.btnVoorraadAanpassen.Size = new System.Drawing.Size(148, 72);
+            this.btnVoorraadAanpassen.Size = new System.Drawing.Size(84, 72);
             this.btnVoorraadAanpassen.TabIndex = 9;
             this.btnVoorraadAanpassen.Text = "Voorraad Aanpassen";
             this.btnVoorraadAanpassen.UseVisualStyleBackColor = true;
@@ -751,9 +769,9 @@ namespace SomerenUI
             this.columnHeader2});
             this.listViewCRStudents.FullRowSelect = true;
             this.listViewCRStudents.HideSelection = false;
-            listViewItem1.Tag = "Student_nummer";
+            listViewItem3.Tag = "Student_nummer";
             this.listViewCRStudents.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem3});
             this.listViewCRStudents.Location = new System.Drawing.Point(45, 62);
             this.listViewCRStudents.MultiSelect = false;
             this.listViewCRStudents.Name = "listViewCRStudents";
@@ -771,30 +789,39 @@ namespace SomerenUI
             // 
             this.columnHeader2.Text = "StudentName";
             this.columnHeader2.Width = 150;
-            // btnNieuwDrank
             // 
-            this.btnNieuwDrank.Location = new System.Drawing.Point(1048, 327);
-            this.btnNieuwDrank.Name = "btnNieuwDrank";
-            this.btnNieuwDrank.Size = new System.Drawing.Size(198, 83);
-            this.btnNieuwDrank.TabIndex = 12;
-            this.btnNieuwDrank.Text = "Nieuw drankje";
-            this.btnNieuwDrank.UseVisualStyleBackColor = true;
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(557, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Value:";
+            // 
+            // btnPrijsAanpassen
+            // 
+            this.btnPrijsAanpassen.Location = new System.Drawing.Point(707, 94);
+            this.btnPrijsAanpassen.Name = "btnPrijsAanpassen";
+            this.btnPrijsAanpassen.Size = new System.Drawing.Size(75, 72);
+            this.btnPrijsAanpassen.TabIndex = 22;
+            this.btnPrijsAanpassen.Text = "Prijs Aanpassen";
+            this.btnPrijsAanpassen.UseVisualStyleBackColor = true;
+            this.btnPrijsAanpassen.Click += new System.EventHandler(this.btnPrijsAanpassen_Click);
             // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 505);
-            this.Controls.Add(this.pnl_CashRegister);
-
-
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.pnl_Revenue);
             this.Controls.Add(this.pnl_DrinkSupply);
             this.Controls.Add(this.pnl_Dashboard);
             this.Controls.Add(this.pnl_Rooms);
             this.Controls.Add(this.pnl_Teachers);
             this.Controls.Add(this.pnl_Students);
+            this.Controls.Add(this.pnl_CashRegister);
+            this.Controls.Add(this.pnl_Revenue);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "SomerenUI";
@@ -896,6 +923,14 @@ namespace SomerenUI
         private System.Windows.Forms.Button btnNieuwDrank;
         private System.Windows.Forms.Button btn_Refresh;
         private System.Windows.Forms.DateTimePicker dateTimePickerStartDate;
+        private System.Windows.Forms.Label lblNieuwPrijs;
+        private System.Windows.Forms.Label lblNieuwVoorraad;
+        private System.Windows.Forms.Label lblNieuwNaam;
+        private System.Windows.Forms.TextBox txtNieuwVoorraad;
+        private System.Windows.Forms.TextBox txtNieuwPrijs;
+        private System.Windows.Forms.TextBox txtNieuwNaam;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnPrijsAanpassen;
     }
 }
 

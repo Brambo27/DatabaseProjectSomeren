@@ -24,6 +24,13 @@ namespace SomerenDAL
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
+        public void UpdatePrijs(string drankNaam, string value)
+        {
+            string query = "UPDATE Drank SET Prijs = '" + value + "' WHERE Naam LIKE '" + drankNaam + "'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
         public string GetVoorraadID(string naam)
         {
             string voorraadID = "";
@@ -46,6 +53,18 @@ namespace SomerenDAL
             string Voorraad_ID = GetVoorraadID(drankNaam);
 
             string query = "UPDATE Voorraadsysteem SET Voorraad = '" + value + "' WHERE Voorraadsysteem_ID =" + Voorraad_ID + "";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public void NieuwDrankje(string naam, string voorraad, string prijs)
+        {
+            string query = "BEGIN TRANSACTION " +
+                "DECLARE @DataID int;" +
+                "INSERT INTO Voorraadsysteem(Voorraad) VALUES(" + voorraad + "); " +
+                "SELECT @DataID = scope_identity(); " +
+                "INSERT INTO Drank(Naam, Prijs, Wordt_Bijgehouden) VALUES('" + naam + "' , '" + prijs + "', @DataID) " +
+                "COMMIT";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }

@@ -22,6 +22,16 @@ namespace SomerenLogic
             Drank_db.UpdateNaam(drankNaam, value);
         }
 
+        public void NieuwDrankje(string naam, string voorraad, string prijs)
+        {
+            Drank_db.NieuwDrankje(naam, voorraad, prijs);
+        }
+
+        public void UpdatePrijs(string drankNaam, string value)
+        {
+            Drank_db.UpdatePrijs(drankNaam, value);
+        }
+
         public List<Drank> GetDrank()
         {
             try
@@ -50,5 +60,7 @@ namespace SomerenLogic
             }
 
         }
+
+
     }
 }

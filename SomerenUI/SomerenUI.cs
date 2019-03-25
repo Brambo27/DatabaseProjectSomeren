@@ -443,5 +443,47 @@ namespace SomerenUI
         {
             showPanel("Revenue");
         }
+
+        private void btnNieuwDrank_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SomerenLogic.Drank_Service drank_Service = new Drank_Service();
+                drank_Service.NieuwDrankje(txtNieuwNaam.Text, txtNieuwVoorraad.Text, txtNieuwPrijs.Text);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Selecteer een item");
+            }
+
+            showPanel("DrinkSupply");
+        }
+
+        private void btnPrijsAanpassen_Click(object sender, EventArgs e)
+        {
+            string value = "";
+            if (txtAanpassenValue.Text == "")
+            {
+
+            }
+            else
+            {
+                value = txtAanpassenValue.Text;
+            }
+
+            try
+            {
+                ListViewItem item = listViewDrankVoorraad.SelectedItems[0];
+                SomerenLogic.Drank_Service drank_Service = new Drank_Service();
+                drank_Service.UpdatePrijs(item.Text, value);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Selecteer een item");
+            }
+
+
+            showPanel("DrinkSupply");
+        }
     }
 }
