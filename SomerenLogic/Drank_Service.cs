@@ -12,6 +12,16 @@ namespace SomerenLogic
     {
         Drankvoorraad_DAO Drank_db = new Drankvoorraad_DAO();
 
+        public void UpdateVoorraad(string drankNaam, string value)
+        {
+            Drank_db.UpdateVoorraad(drankNaam, value);
+        }
+
+        public void UpdateNaam(string drankNaam, string value)
+        {
+            Drank_db.UpdateNaam(drankNaam, value);
+        }
+
         public List<Drank> GetDrank()
         {
             try

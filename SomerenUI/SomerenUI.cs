@@ -42,9 +42,6 @@ namespace SomerenUI
                 pnl_Revenue.Hide();
                 pnl_CashRegister.Hide();
 
-                pnl_DrankVoorraad.Hide();
-
-
 
                 // show dashboard
                 pnl_Dashboard.Show();
@@ -62,8 +59,6 @@ namespace SomerenUI
                 pnl_DrinkSupply.Hide();
                 pnl_Revenue.Hide();
                 pnl_CashRegister.Hide();
-
-                pnl_DrankVoorraad.Hide();
 
 
                 // show students
@@ -95,8 +90,6 @@ namespace SomerenUI
                 pnl_DrinkSupply.Hide();
                 pnl_Revenue.Hide();
                 pnl_CashRegister.Hide();
-
-                pnl_DrankVoorraad.Hide();
 
 
                 // show Teachers
@@ -144,8 +137,6 @@ namespace SomerenUI
                 pnl_Revenue.Hide();
                 pnl_CashRegister.Hide();
 
-                pnl_DrankVoorraad.Hide();
-
                 // show Rooms
                 pnl_Rooms.Show();
                 imgRoomsLogo.Show();
@@ -165,7 +156,7 @@ namespace SomerenUI
                     li.SubItems.Add(r.Type.ToString());
                 }
             }
-            else if (panelName == "DrankVoorraad")
+            else if (panelName == "DrinkSupply")
             {
                 // hide all other panels
                 pnl_Dashboard.Hide();
@@ -180,8 +171,10 @@ namespace SomerenUI
                 pnl_CashRegister.Hide();
 
 
-                // show DrankVoorraad
-                pnl_DrankVoorraad.Show();
+                // show Rooms
+                pnl_DrinkSupply.Show();
+
+
 
                 // fill the drank listview within the drank panel with a list of drank
                 SomerenLogic.Drank_Service drank_Service = new SomerenLogic.Drank_Service();
@@ -345,11 +338,37 @@ namespace SomerenUI
         {
             showPanel("Revenue");
         }
-        private void drankvoorraadToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            showPanel("DrankVoorraad");
-        }
 
+        private void btnVoorraadAanpassen_Click(object sender, EventArgs e)
+        {
+            string value = "";
+            if (txtAanpassenValue.Text == "")
+            {
+
+            }
+            else
+            {
+               value = txtAanpassenValue.Text;
+            }
+            if (true)
+            {
+
+            }
+            ListViewItem item;
+
+            try
+            {
+                item = listViewDrankVoorraad.SelectedItems[0];
+                SomerenLogic.Drank_Service drank_Service = new Drank_Service();
+                drank_Service.UpdateVoorraad(item.Text, value);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Selecteer een item");
+            }
+
+            showPanel("DrinkSupply");
+        }
         private void cashregisterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("CashRegister");
@@ -370,6 +389,31 @@ namespace SomerenUI
                 //do something with item.text or whatever
                 
             }
+        private void btnNaamAanpassen_Click(object sender, EventArgs e)
+        {
+            string value = "";
+            if (txtAanpassenValue.Text == "")
+            {
+
+            }
+            else
+            {
+                value = txtAanpassenValue.Text;
+            }
+
+            try
+            {
+                ListViewItem item = listViewDrankVoorraad.SelectedItems[0];
+                SomerenLogic.Drank_Service drank_Service = new Drank_Service();
+                drank_Service.UpdateNaam(item.Text, value);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Selecteer een item");
+            }
+
+            
+            showPanel("DrinkSupply");
         }
     }
 }
