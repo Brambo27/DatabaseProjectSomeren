@@ -41,9 +41,6 @@ namespace SomerenUI
                 pnl_DrinkSupply.Hide();
                 pnl_Revenue.Hide();
 
-                pnl_DrankVoorraad.Hide();
-
-
 
                 // show dashboard
                 pnl_Dashboard.Show();
@@ -60,8 +57,6 @@ namespace SomerenUI
                 imgRoomsLogo.Hide();
                 pnl_DrinkSupply.Hide();
                 pnl_Revenue.Hide();
-
-                pnl_DrankVoorraad.Hide();
 
 
                 // show students
@@ -92,8 +87,6 @@ namespace SomerenUI
                 imgRoomsLogo.Hide();
                 pnl_DrinkSupply.Hide();
                 pnl_Revenue.Hide();
-
-                pnl_DrankVoorraad.Hide();
 
 
                 // show Teachers
@@ -140,8 +133,6 @@ namespace SomerenUI
                 pnl_DrinkSupply.Hide();
                 pnl_Revenue.Hide();
 
-                pnl_DrankVoorraad.Hide();
-
                 // show Rooms
                 pnl_Rooms.Show();
                 imgRoomsLogo.Show();
@@ -161,7 +152,7 @@ namespace SomerenUI
                     li.SubItems.Add(r.Type.ToString());
                 }
             }
-            else if (panelName == "DrankVoorraad")
+            else if (panelName == "DrinkSupply")
             {
                 // hide all other panels
                 pnl_Dashboard.Hide();
@@ -175,8 +166,10 @@ namespace SomerenUI
                 pnl_Revenue.Hide();
 
 
-                // show DrankVoorraad
-                pnl_DrankVoorraad.Show();
+                // show Rooms
+                pnl_DrinkSupply.Show();
+
+
 
                 // fill the drank listview within the drank panel with a list of drank
                 SomerenLogic.Drank_Service drank_Service = new SomerenLogic.Drank_Service();
@@ -202,23 +195,6 @@ namespace SomerenUI
                         li.SubItems.Add("Genoeg");
                     }
                 }
-            }
-            else if (panelName == "DrinkSupply")
-            {
-                // hide all other panels
-                pnl_Dashboard.Hide();
-                imgDashboardLogo.Hide();
-                pnl_Teachers.Hide();
-                imgTeachersLogo.Hide();
-                pnl_Students.Hide();
-                imgStudentsLogo.Hide();
-                pnl_Rooms.Hide();
-                imgRoomsLogo.Hide();
-                pnl_Revenue.Hide();
-
-
-                // show Rooms
-                pnl_DrinkSupply.Show();
             }
             else if (panelName == "Revenue")
             {
@@ -303,10 +279,63 @@ namespace SomerenUI
         {
             showPanel("Revenue");
         }
-        private void drankvoorraadToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void btnVoorraadAanpassen_Click(object sender, EventArgs e)
         {
-            showPanel("DrankVoorraad");
+            string value = "";
+            if (txtAanpassenValue.Text == "")
+            {
+
+            }
+            else
+            {
+               value = txtAanpassenValue.Text;
+            }
+            if (true)
+            {
+
+            }
+            ListViewItem item;
+
+            try
+            {
+                item = listViewDrankVoorraad.SelectedItems[0];
+                SomerenLogic.Drank_Service drank_Service = new Drank_Service();
+                drank_Service.UpdateVoorraad(item.Text, value);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Selecteer een item");
+            }
+
+            showPanel("DrinkSupply");
         }
 
+        private void btnNaamAanpassen_Click(object sender, EventArgs e)
+        {
+            string value = "";
+            if (txtAanpassenValue.Text == "")
+            {
+
+            }
+            else
+            {
+                value = txtAanpassenValue.Text;
+            }
+
+            try
+            {
+                ListViewItem item = listViewDrankVoorraad.SelectedItems[0];
+                SomerenLogic.Drank_Service drank_Service = new Drank_Service();
+                drank_Service.UpdateNaam(item.Text, value);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Selecteer een item");
+            }
+
+            
+            showPanel("DrinkSupply");
+        }
     }
 }
