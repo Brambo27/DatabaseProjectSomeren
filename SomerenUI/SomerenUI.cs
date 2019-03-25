@@ -40,6 +40,7 @@ namespace SomerenUI
                 imgRoomsLogo.Hide();
                 pnl_DrinkSupply.Hide();
                 pnl_Revenue.Hide();
+                pnl_CashRegister.Hide();
 
 
                 // show dashboard
@@ -57,6 +58,7 @@ namespace SomerenUI
                 imgRoomsLogo.Hide();
                 pnl_DrinkSupply.Hide();
                 pnl_Revenue.Hide();
+                pnl_CashRegister.Hide();
 
 
                 // show students
@@ -87,6 +89,7 @@ namespace SomerenUI
                 imgRoomsLogo.Hide();
                 pnl_DrinkSupply.Hide();
                 pnl_Revenue.Hide();
+                pnl_CashRegister.Hide();
 
 
                 // show Teachers
@@ -132,6 +135,7 @@ namespace SomerenUI
                 imgStudentsLogo.Hide();
                 pnl_DrinkSupply.Hide();
                 pnl_Revenue.Hide();
+                pnl_CashRegister.Hide();
 
                 // show Rooms
                 pnl_Rooms.Show();
@@ -164,6 +168,7 @@ namespace SomerenUI
                 pnl_Rooms.Hide();
                 imgRoomsLogo.Hide();
                 pnl_Revenue.Hide();
+                pnl_CashRegister.Hide();
 
 
                 // show Rooms
@@ -196,6 +201,24 @@ namespace SomerenUI
                     }
                 }
             }
+            else if (panelName == "DrinkSupply")
+            {
+                // hide all other panels
+                pnl_Dashboard.Hide();
+                imgDashboardLogo.Hide();
+                pnl_Teachers.Hide();
+                imgTeachersLogo.Hide();
+                pnl_Students.Hide();
+                imgStudentsLogo.Hide();
+                pnl_Rooms.Hide();
+                imgRoomsLogo.Hide();
+                pnl_Revenue.Hide();
+                pnl_CashRegister.Hide();
+
+
+                // show Rooms
+                pnl_DrinkSupply.Show();
+            }
             else if (panelName == "Revenue")
             {
                 pnl_Dashboard.Hide();
@@ -207,6 +230,7 @@ namespace SomerenUI
                 pnl_Rooms.Hide();
                 imgRoomsLogo.Hide();
                 pnl_DrinkSupply.Hide();
+                pnl_CashRegister.Hide();
 
                 pnl_Revenue.Show();
 
@@ -234,6 +258,42 @@ namespace SomerenUI
                 list.SubItems.Add(numberOfStudents.ToString());
                 listViewRevenue.Items.Add(list);
             }
+            else if (panelName == "CashRegister")
+            {
+                pnl_Dashboard.Hide();
+                imgDashboardLogo.Hide();
+                pnl_Teachers.Hide();
+                imgTeachersLogo.Hide();
+                pnl_Students.Hide();
+                imgStudentsLogo.Hide();
+                pnl_Rooms.Hide();
+                imgRoomsLogo.Hide();
+                pnl_DrinkSupply.Hide();
+                pnl_Revenue.Hide();
+
+                pnl_CashRegister.Show();
+
+                SomerenLogic.CashRegister_Service cashRegisterService = new SomerenLogic.CashRegister_Service();
+                List<CashRegister> cashRegisters = cashRegisterService.GetCashRegisters();
+
+                SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
+                List<Student> studentList = studService.GetStudents();
+
+                listViewCRStudents.Items.Clear();
+                foreach (SomerenModel.Student s in studentList)
+                {
+                    ListViewItem li = new ListViewItem(s.Number.ToString());
+                    listViewCRStudents.Items.Add(li);
+                    li.SubItems.Add(s.Name);
+                }
+                listViewCRDrank.Items.Clear();
+                foreach (SomerenModel.CashRegister c in cashRegisters)
+                {
+                    ListViewItem li = new ListViewItem(c.DrankID.ToString());
+                    listViewCRDrank.Items.Add(li);
+                    li.SubItems.Add(c.DrankNaam);
+                }
+            } //meneer otter kan geen dammen bouwen want hij is geen bever
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -310,7 +370,29 @@ namespace SomerenUI
 
             showPanel("DrinkSupply");
         }
+        private void cashregisterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("CashRegister");
+        }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SomerenLogic.CashRegister_Service cashRegisterService = new SomerenLogic.CashRegister_Service();
+            List<CashRegister> cashRegisters = cashRegisterService.GetCashRegisters();
+
+            SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
+            List<Student> studentList = studService.GetStudents();
+
+            ListViewItem student = listViewCRStudents.SelectedItems[0];
+            ListViewItem drankje = listViewCRDrank.SelectedItems[0];
+            cashRegisterService.Db_Bar_Update_verkoop(int.Parse(drankje.Text), int.Parse(student.Text));
+
+        }
         private void btnNaamAanpassen_Click(object sender, EventArgs e)
         {
             string value = "";
