@@ -12,7 +12,7 @@ namespace SomerenDAL
 {
     public class Student_DAO : Base
     {
-      
+     //boe 
         public List<Student> Db_Get_All_Students()
         {
             string query = "SELECT Student_Nummer, Naam FROM Student";
