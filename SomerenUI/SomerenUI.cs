@@ -40,6 +40,7 @@ namespace SomerenUI
                 imgRoomsLogo.Hide();
                 pnl_DrinkSupply.Hide();
                 pnl_Revenue.Hide();
+                pnl_CashRegister.Hide();
 
                 pnl_DrankVoorraad.Hide();
 
@@ -60,6 +61,7 @@ namespace SomerenUI
                 imgRoomsLogo.Hide();
                 pnl_DrinkSupply.Hide();
                 pnl_Revenue.Hide();
+                pnl_CashRegister.Hide();
 
                 pnl_DrankVoorraad.Hide();
 
@@ -92,6 +94,7 @@ namespace SomerenUI
                 imgRoomsLogo.Hide();
                 pnl_DrinkSupply.Hide();
                 pnl_Revenue.Hide();
+                pnl_CashRegister.Hide();
 
                 pnl_DrankVoorraad.Hide();
 
@@ -139,6 +142,7 @@ namespace SomerenUI
                 imgStudentsLogo.Hide();
                 pnl_DrinkSupply.Hide();
                 pnl_Revenue.Hide();
+                pnl_CashRegister.Hide();
 
                 pnl_DrankVoorraad.Hide();
 
@@ -173,6 +177,7 @@ namespace SomerenUI
                 pnl_Rooms.Hide();
                 imgRoomsLogo.Hide();
                 pnl_Revenue.Hide();
+                pnl_CashRegister.Hide();
 
 
                 // show DrankVoorraad
@@ -215,6 +220,7 @@ namespace SomerenUI
                 pnl_Rooms.Hide();
                 imgRoomsLogo.Hide();
                 pnl_Revenue.Hide();
+                pnl_CashRegister.Hide();
 
 
                 // show Rooms
@@ -231,6 +237,7 @@ namespace SomerenUI
                 pnl_Rooms.Hide();
                 imgRoomsLogo.Hide();
                 pnl_DrinkSupply.Hide();
+                pnl_CashRegister.Hide();
 
                 pnl_Revenue.Show();
 
@@ -258,6 +265,41 @@ namespace SomerenUI
                 list.SubItems.Add(numberOfStudents.ToString());
                 listViewRevenue.Items.Add(list);
             }
+            else if (panelName == "CashRegister")
+            {
+                pnl_Dashboard.Hide();
+                imgDashboardLogo.Hide();
+                pnl_Teachers.Hide();
+                imgTeachersLogo.Hide();
+                pnl_Students.Hide();
+                imgStudentsLogo.Hide();
+                pnl_Rooms.Hide();
+                imgRoomsLogo.Hide();
+                pnl_DrinkSupply.Hide();
+                pnl_Revenue.Hide();
+
+                pnl_CashRegister.Show();
+
+                SomerenLogic.CashRegister_Service cashRegisterService = new SomerenLogic.CashRegister_Service();
+                List<CashRegister> cashRegisters = cashRegisterService.GetCashRegisters();
+
+                SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
+                List<Student> studentList = studService.GetStudents();
+
+                foreach (SomerenModel.Student s in studentList)
+                {
+                    ListViewItem li = new ListViewItem(s.Number.ToString());
+                    listViewCRStudents.Items.Add(li);
+                    li.SubItems.Add(s.Name);
+                }
+
+                foreach (SomerenModel.CashRegister c in cashRegisters)
+                {
+                    ListViewItem li = new ListViewItem(c.DrankID.ToString());
+                    listViewCRDrank.Items.Add(li);
+                    li.SubItems.Add(c.DrankNaam);
+                }
+            } //meneer otter kan geen dammen bouwen want hij is geen bever
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -308,5 +350,26 @@ namespace SomerenUI
             showPanel("DrankVoorraad");
         }
 
+        private void cashregisterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("CashRegister");
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //ListViewItem student = listViewCRStudents.SelectedItems[0];
+            ListViewItem drankje = listViewCRDrank.SelectedItems[0];
+
+            foreach (ListViewItem student in listViewCRStudents.SelectedItems)
+            {
+                //do something with item.text or whatever
+                
+            }
+        }
     }
 }
