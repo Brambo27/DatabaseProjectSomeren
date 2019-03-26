@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activity_DAO.cs" />
     <Compile Include="Base.cs" />
     <Compile Include="CashRegister_DAO.cs" />
     <Compile Include="Drankvoorraad_DAO.cs" />

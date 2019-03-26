@@ -41,6 +41,7 @@ namespace SomerenUI
                 pnl_DrinkSupply.Hide();
                 pnl_Revenue.Hide();
                 pnl_CashRegister.Hide();
+                pnl_Activity.Hide();
 
 
                 // show dashboard
@@ -59,6 +60,7 @@ namespace SomerenUI
                 pnl_DrinkSupply.Hide();
                 pnl_Revenue.Hide();
                 pnl_CashRegister.Hide();
+                pnl_Activity.Hide();
 
 
                 // show students
@@ -90,6 +92,7 @@ namespace SomerenUI
                 pnl_DrinkSupply.Hide();
                 pnl_Revenue.Hide();
                 pnl_CashRegister.Hide();
+                pnl_Activity.Hide();
 
 
                 // show Teachers
@@ -136,6 +139,7 @@ namespace SomerenUI
                 pnl_DrinkSupply.Hide();
                 pnl_Revenue.Hide();
                 pnl_CashRegister.Hide();
+                pnl_Activity.Hide();
 
                 // show Rooms
                 pnl_Rooms.Show();
@@ -169,6 +173,7 @@ namespace SomerenUI
                 imgRoomsLogo.Hide();
                 pnl_Revenue.Hide();
                 pnl_CashRegister.Hide();
+                pnl_Activity.Hide();
 
 
                 // show Rooms
@@ -214,6 +219,7 @@ namespace SomerenUI
                 imgRoomsLogo.Hide();
                 pnl_Revenue.Hide();
                 pnl_CashRegister.Hide();
+                pnl_Activity.Hide();
 
 
                 // show Rooms
@@ -231,6 +237,7 @@ namespace SomerenUI
                 imgRoomsLogo.Hide();
                 pnl_DrinkSupply.Hide();
                 pnl_CashRegister.Hide();
+                pnl_Activity.Hide();
 
                 pnl_Revenue.Show();
 
@@ -289,6 +296,7 @@ namespace SomerenUI
                 imgRoomsLogo.Hide();
                 pnl_DrinkSupply.Hide();
                 pnl_Revenue.Hide();
+                pnl_Activity.Hide();
 
                 pnl_CashRegister.Show();
 
@@ -313,6 +321,35 @@ namespace SomerenUI
                     li.SubItems.Add(c.DrankNaam);
                 }
             } //meneer otter kan geen dammen bouwen want hij is geen bever
+            else if (panelName == "Activity")
+            {
+                pnl_Dashboard.Hide();
+                imgDashboardLogo.Hide();
+                pnl_Teachers.Hide();
+                imgTeachersLogo.Hide();
+                pnl_Students.Hide();
+                imgStudentsLogo.Hide();
+                pnl_Rooms.Hide();
+                imgRoomsLogo.Hide();
+                pnl_DrinkSupply.Hide();
+                pnl_Revenue.Hide();
+                pnl_CashRegister.Hide();
+
+                pnl_Activity.Show();
+
+                SomerenLogic.Activity_Service activityService = new SomerenLogic.Activity_Service();
+                List<Activity> activities = activityService.GetActivities();
+
+                listViewActivity.Items.Clear();
+                foreach (SomerenModel.Activity A in activities)
+                {
+                    ListViewItem li = new ListViewItem(A.activityID.ToString());
+                    listViewActivity.Items.Add(li);
+                    li.SubItems.Add(A.activityName);
+                    li.SubItems.Add(A.numberOfStudents.ToString());
+                    li.SubItems.Add(A.numerOfDocents.ToString());
+                }
+            }
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -490,6 +527,136 @@ namespace SomerenUI
         private bool IsInt(string testValue)
         {
             return int.TryParse(testValue, out int nummer);
+        }
+
+        private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Activity");
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (NewName.Text == "" || NewStudents.Text == "" || NewDocents.Text == "")
+            {
+                MessageBox.Show("De invoer boxen mogen niet leeg zijn. Probeer het opnieuw makker");
+                return;
+            }
+            try
+            {
+                SomerenLogic.Activity_Service activity_Service = new Activity_Service();
+                activity_Service.NewActivity(NewName.Text, int.Parse(NewStudents.Text), int.Parse(NewDocents.Text));
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Geen geldig cijfer");
+            }
+
+            showPanel("Activity");
+
+        }
+
+        private void Change_Name_Click(object sender, EventArgs e)
+        {
+            string value = "";
+            if (txtValue.Text == "")
+            {
+                MessageBox.Show("The value can't be nothing");
+                return;
+            }
+            try
+            {
+                value = txtValue.Text;
+                ListViewItem item = listViewActivity.SelectedItems[0];
+                SomerenLogic.Activity_Service activity_Service = new Activity_Service();
+                activity_Service.UpdateName(value, int.Parse(item.Text));
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Select an item");
+                return;
+            }
+
+            showPanel("Activity");
+        }
+
+        private void Change_Students_Click(object sender, EventArgs e)
+        {
+            string value = "";
+            if (txtValue.Text == "")
+            {
+                MessageBox.Show("The value can't be nothing");
+                return;
+            }
+            if (!IsInt(txtValue.Text))
+            {
+                MessageBox.Show("Not a valid value(Only number, No comma's)");
+                return;
+            }
+            try
+            {
+                value = txtValue.Text;
+                ListViewItem item = listViewActivity.SelectedItems[0];
+                SomerenLogic.Activity_Service activity_Service = new Activity_Service();
+                activity_Service.UpdateStudent(value, int.Parse(item.Text));
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Select an Item");
+                return;
+            }
+
+            showPanel("Activity");
+        }
+
+        private void Change_Docents_Click(object sender, EventArgs e)
+        {
+            string value = "";
+            if (txtValue.Text == "")
+            {
+                MessageBox.Show("The value can't be nothing");
+                return;
+            }
+            if (!IsInt(txtValue.Text))
+            {
+                MessageBox.Show("Not a valid value(Only number, No comma's)");
+                return;
+            }
+            try
+            {
+                value = txtValue.Text;
+                ListViewItem item = listViewActivity.SelectedItems[0];
+                SomerenLogic.Activity_Service activity_Service = new Activity_Service();
+                activity_Service.UpdateDocent(value, int.Parse(item.Text));
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Select an item");
+                return;
+            }
+
+            showPanel("Activity");
+        }
+
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ListViewItem item = listViewActivity.SelectedItems[0];
+                SomerenLogic.Activity_Service activity_Service = new Activity_Service();
+                activity_Service.Delete(int.Parse(item.Text));
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Select an item");
+                return;
+            }
+
+            showPanel("Activity");
         }
     }
 }
