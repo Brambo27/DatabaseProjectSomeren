@@ -362,22 +362,17 @@ namespace SomerenUI
         private void btnVoorraadAanpassen_Click(object sender, EventArgs e)
         {
             string value = "";
-            if (txtAanpassenValue.Text == "")
-            {
-
-            }
-            else
-            {
-               value = txtAanpassenValue.Text;
-            }
-            if (true)
-            {
-
-            }
+            
             ListViewItem item;
 
+            if (txtAanpassenValue.Text == "")
+            {
+                MessageBox.Show("Geef een geldige waarde op. (Niet niks)");
+                return;
+            }
             try
             {
+                value = txtAanpassenValue.Text;
                 item = listViewDrankVoorraad.SelectedItems[0];
                 SomerenLogic.Drank_Service drank_Service = new Drank_Service();
                 drank_Service.UpdateVoorraad(item.Text, value);
@@ -385,6 +380,7 @@ namespace SomerenUI
             catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("Selecteer een item");
+                return;
             }
 
             showPanel("DrinkSupply");
@@ -417,15 +413,13 @@ namespace SomerenUI
             string value = "";
             if (txtAanpassenValue.Text == "")
             {
-
+                MessageBox.Show("Geef een geldige waarde op. (Niet niks)");
+                return;
             }
-            else
-            {
-                value = txtAanpassenValue.Text;
-            }
-
             try
             {
+                value = txtAanpassenValue.Text;
+
                 ListViewItem item = listViewDrankVoorraad.SelectedItems[0];
                 SomerenLogic.Drank_Service drank_Service = new Drank_Service();
                 drank_Service.UpdateNaam(item.Text, value);
@@ -433,8 +427,8 @@ namespace SomerenUI
             catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("Selecteer een item");
+                return;
             }
-
             
             showPanel("DrinkSupply");
         }
@@ -446,6 +440,11 @@ namespace SomerenUI
 
         private void btnNieuwDrank_Click(object sender, EventArgs e)
         {
+            if (txtNieuwNaam.Text == "" || txtNieuwPrijs.Text == "" || txtNieuwVoorraad.Text == "")
+            {
+                MessageBox.Show("De invoer boxen mogen niet leeg zijn. Probeer het opnieuw makker");
+                return;
+            }
             try
             {
                 SomerenLogic.Drank_Service drank_Service = new Drank_Service();
@@ -464,15 +463,17 @@ namespace SomerenUI
             string value = "";
             if (txtAanpassenValue.Text == "")
             {
-
+                MessageBox.Show("Geef een geldige waarde op. (Niet niks)");
+                return;
             }
-            else
+            if (!IsInt(txtAanpassenValue.Text))
             {
-                value = txtAanpassenValue.Text;
+                MessageBox.Show("Geef een geldige waarde op. (Moet een cijfer zijn. Geen comma waarden)");
+                return;
             }
-
             try
             {
+                value = txtAanpassenValue.Text;
                 ListViewItem item = listViewDrankVoorraad.SelectedItems[0];
                 SomerenLogic.Drank_Service drank_Service = new Drank_Service();
                 drank_Service.UpdatePrijs(item.Text, value);
@@ -480,10 +481,15 @@ namespace SomerenUI
             catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("Selecteer een item");
+                return;
             }
 
-
             showPanel("DrinkSupply");
+        }
+
+        private bool IsInt(string testValue)
+        {
+            return int.TryParse(testValue, out int nummer);
         }
     }
 }
