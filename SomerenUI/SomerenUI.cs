@@ -639,18 +639,21 @@ namespace SomerenUI
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult confirmation = MessageBox.Show("Are you sure?", "sure?", MessageBoxButtons.YesNo);
+            if (confirmation == DialogResult.Yes)
             {
-                ListViewItem item = listViewActivity.SelectedItems[0];
-                SomerenLogic.Activity_Service activity_Service = new Activity_Service();
-                activity_Service.Delete(int.Parse(item.Text));
+                try
+                {
+                    ListViewItem item = listViewActivity.SelectedItems[0];
+                    SomerenLogic.Activity_Service activity_Service = new Activity_Service();
+                    activity_Service.Delete(int.Parse(item.Text));
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    MessageBox.Show("Select an item");
+                    return;
+                }
             }
-            catch (ArgumentOutOfRangeException)
-            {
-                MessageBox.Show("Select an item");
-                return;
-            }
-
             showPanel("Activity");
         }
     }
