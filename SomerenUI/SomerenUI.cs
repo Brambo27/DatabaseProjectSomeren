@@ -407,6 +407,11 @@ namespace SomerenUI
                 MessageBox.Show("Geef een geldige waarde op. (Niet niks)");
                 return;
             }
+            if (!IsInt(txtAanpassenValue.Text))
+            {
+                MessageBox.Show("Geef een geldige waarde op. (Moet een cijfer zijn. Geen comma waarden)");
+                return;
+            }
             try
             {
                 value = txtAanpassenValue.Text;
@@ -427,12 +432,7 @@ namespace SomerenUI
             showPanel("CashRegister");
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_afrekene_Click(object sender, EventArgs e)
         {
             SomerenLogic.CashRegister_Service cashRegisterService = new SomerenLogic.CashRegister_Service();
             List<CashRegister> cashRegisters = cashRegisterService.GetCashRegisters();
@@ -534,12 +534,7 @@ namespace SomerenUI
             showPanel("Activity");
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnNewActivity_Click(object sender, EventArgs e)
         {
             if (NewName.Text == "" || NewStudents.Text == "" || NewDocents.Text == "")
             {
