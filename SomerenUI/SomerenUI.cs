@@ -18,7 +18,15 @@ namespace SomerenUI
         public SomerenUI()
         {
             InitializeComponent();
+
+            // Create an instance of a ListView column sorter and assign it 
+            // to the ListView control.
+            lvwColumnSorter = new ListViewColumnSorter();
+            this.listViewTeachers.ListViewItemSorter = lvwColumnSorter;
         }
+
+        //Dit is om de listviews te sorteren
+        private ListViewColumnSorter lvwColumnSorter;
 
         private void SomerenUI_Load(object sender, EventArgs e)
         {
@@ -655,6 +663,32 @@ namespace SomerenUI
                 }
             }
             showPanel("Activity");
+        }
+
+        private void listViewTeachers_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            // Determine if clicked column is already the column that is being sorted.
+            if (e.Column == lvwColumnSorter.SortColumn)
+            {
+                // Reverse the current sort direction for this column.
+                if (lvwColumnSorter.Order == SortOrder.Ascending)
+                {
+                    lvwColumnSorter.Order = SortOrder.Descending;
+                }
+                else
+                {
+                    lvwColumnSorter.Order = SortOrder.Ascending;
+                }
+            }
+            else
+            {
+                // Set the column number that is to be sorted; default to ascending.
+                lvwColumnSorter.SortColumn = e.Column;
+                lvwColumnSorter.Order = SortOrder.Ascending;
+            }
+
+            // Perform the sort with these new sort options.
+            this.listViewTeachers.Sort();
         }
     }
 }
