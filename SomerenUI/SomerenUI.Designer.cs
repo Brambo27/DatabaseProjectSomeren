@@ -32,7 +32,8 @@ namespace SomerenUI
         {
             System.Windows.Forms.ColumnHeader KamerNummer;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SomerenUI));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.Button btnUpgradeToSupervisor;
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dashboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -132,7 +133,9 @@ namespace SomerenUI
             this.ActivityName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Students = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Docents = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnDowngradeToTeacher = new System.Windows.Forms.Button();
             KamerNummer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            btnUpgradeToSupervisor = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboardLogo)).BeginInit();
@@ -653,6 +656,8 @@ namespace SomerenUI
             // 
             // pnl_Teachers
             // 
+            this.pnl_Teachers.Controls.Add(this.btnDowngradeToTeacher);
+            this.pnl_Teachers.Controls.Add(btnUpgradeToSupervisor);
             this.pnl_Teachers.Controls.Add(this.listViewTeachers);
             this.pnl_Teachers.Controls.Add(this.imgTeachersLogo);
             this.pnl_Teachers.Controls.Add(this.lbl_Teachers);
@@ -815,9 +820,9 @@ namespace SomerenUI
             this.columnHeader2});
             this.listViewCRStudents.FullRowSelect = true;
             this.listViewCRStudents.HideSelection = false;
-            listViewItem1.Tag = "Student_nummer";
+            listViewItem2.Tag = "Student_nummer";
             this.listViewCRStudents.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem2});
             this.listViewCRStudents.Location = new System.Drawing.Point(45, 62);
             this.listViewCRStudents.MultiSelect = false;
             this.listViewCRStudents.Name = "listViewCRStudents";
@@ -1036,6 +1041,26 @@ namespace SomerenUI
             // 
             this.Docents.Text = "Docents";
             // 
+            // btnUpgradeToSupervisor
+            // 
+            btnUpgradeToSupervisor.Location = new System.Drawing.Point(534, 43);
+            btnUpgradeToSupervisor.Name = "btnUpgradeToSupervisor";
+            btnUpgradeToSupervisor.Size = new System.Drawing.Size(155, 53);
+            btnUpgradeToSupervisor.TabIndex = 6;
+            btnUpgradeToSupervisor.Text = "Upgrade selected Teacher to Supervisor";
+            btnUpgradeToSupervisor.UseVisualStyleBackColor = true;
+            btnUpgradeToSupervisor.Click += new System.EventHandler(this.btnUpgradeToSupervisor_Click);
+            // 
+            // btnDowngradeToTeacher
+            // 
+            this.btnDowngradeToTeacher.Location = new System.Drawing.Point(534, 115);
+            this.btnDowngradeToTeacher.Name = "btnDowngradeToTeacher";
+            this.btnDowngradeToTeacher.Size = new System.Drawing.Size(155, 51);
+            this.btnDowngradeToTeacher.TabIndex = 7;
+            this.btnDowngradeToTeacher.Text = "Downgrade slected Supervisor to Teacher";
+            this.btnDowngradeToTeacher.UseVisualStyleBackColor = true;
+            this.btnDowngradeToTeacher.Click += new System.EventHandler(this.btnDowngradeToTeacher_Click);
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1183,6 +1208,7 @@ namespace SomerenUI
         private System.Windows.Forms.Button Change_Name;
         private System.Windows.Forms.TextBox txtValue;
         private System.Windows.Forms.Label Value;
+        private System.Windows.Forms.Button btnDowngradeToTeacher;
     }
 }
 

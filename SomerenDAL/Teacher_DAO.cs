@@ -20,6 +20,20 @@ namespace SomerenDAL
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
+        public void UpgradeTeacherToSupervisor(string teacherNumber)
+        {
+            string query = "UPDATE Docent SET Is_Begeleider = 1 WHERE Docent_Nummer = '"+ teacherNumber +"'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public void DowngradeSupervisorToTeacher(string teacherNumber)
+        {
+            string query = "UPDATE Docent SET Is_Begeleider = 0 WHERE Docent_Nummer = '" + teacherNumber + "'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
         private List<Teacher> ReadTables(DataTable dataTable)
         {
             List<Teacher> teachers = new List<Teacher>();
@@ -38,6 +52,5 @@ namespace SomerenDAL
             }
             return teachers;
         }
-
     }
 }

@@ -13,6 +13,16 @@ namespace SomerenLogic
     {
         Teacher_DAO teacher_db = new Teacher_DAO();
 
+        public void UpgradeTeacherToSupervisor(string teacherNumber)
+        {
+            teacher_db.UpgradeTeacherToSupervisor(teacherNumber);
+        }
+
+        public void DowngradeSupervisorToTeacher(string teacherNumber)
+        {
+            teacher_db.DowngradeSupervisorToTeacher(teacherNumber);
+        }
+
         public List<Teacher> GetTeachers()
         {
             try

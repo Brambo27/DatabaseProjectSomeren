@@ -126,7 +126,7 @@ namespace SomerenUI
                     }
                     else
                     {
-                        supervisor = "no";
+                        supervisor = "No";
                     }
 
                     ListViewItem list = new ListViewItem(t.Number.ToString());
@@ -689,6 +689,67 @@ namespace SomerenUI
 
             // Perform the sort with these new sort options.
             this.listViewTeachers.Sort();
+        }
+
+        private void btnUpgradeToSupervisor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ListViewItem item = listViewTeachers.SelectedItems[0];
+                Teacher_Service teacher_Service = new Teacher_Service();
+
+                if (item.SubItems[2].Text == "No")
+                {
+                    teacher_Service.DowngradeSupervisorToTeacher(item.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Cannot upgrade teacher who is already a supervisor");
+                }
+
+                teacher_Service.UpgradeTeacherToSupervisor(item.Text);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Select an item");
+                return;
+            }
+
+            showPanel("Teachers");
+        }
+
+        private void btnDowngradeToTeacher_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ListViewItem item = listViewTeachers.SelectedItems[0];
+                Teacher_Service teacher_Service = new Teacher_Service();
+
+                if (item.SubItems[2].Text == "Yes")
+                {
+                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to demote this supervisor to teacher?", "Are you sure?", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        teacher_Service.DowngradeSupervisorToTeacher(item.Text);
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Cannot downgrade a teacher who is not a supervisor");
+                }
+
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Select an item");
+                return;
+            }
+
+            showPanel("Teachers");
         }
     }
 }
