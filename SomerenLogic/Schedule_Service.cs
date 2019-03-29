@@ -13,9 +13,9 @@ namespace SomerenLogic
     {
         Schedule_DAO schedule_db = new Schedule_DAO();
 
-        public void UpdateSoort(string currentType, string replacementType)
+        public void SwapActivityTime(string firstRoosterID, string secondRoosterID)
         {
-            schedule_db.SwapActivities(currentType, replacementType);
+            schedule_db.SwapActivityTime(firstRoosterID, secondRoosterID);
         }
 
         public List<Schedule> GetSchedules()

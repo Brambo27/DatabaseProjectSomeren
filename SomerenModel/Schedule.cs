@@ -8,7 +8,9 @@ namespace SomerenModel
 {
     public class Schedule
     {
-        public String Activity { get; set; }
+        public int RoosterID { get; set; }
+        public int ActivityID { get; set; }
+        public string Activity { get; set; }
         public int Supervisors { get; set; }
         public DateTime StartDate { get; set; }
         public TimeSpan StartTime { get; set; }

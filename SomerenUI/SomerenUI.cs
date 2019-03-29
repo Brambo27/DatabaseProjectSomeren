@@ -391,7 +391,9 @@ namespace SomerenUI
 
                 foreach (SomerenModel.Schedule S in schedules)
                 {
-                    ListViewItem li = new ListViewItem(S.Activity);
+                    ListViewItem li = new ListViewItem(S.RoosterID.ToString());
+
+                    //li.SubItems.Add(S.RoosterID.ToString());
                     li.SubItems.Add(S.Supervisors.ToString());
 
                     DateTime date = S.StartDate.Date;
@@ -403,6 +405,7 @@ namespace SomerenUI
 
                     timeString = S.EndTime.ToString(@"hh\:mm");
                     li.SubItems.Add(timeString);
+
 
                     listViewSchedule.Items.Add(li);
                 }
@@ -808,17 +811,16 @@ namespace SomerenUI
             showPanel("Schedule");
         }
 
-        //private void btn_ChangeSchedule_Click(object sender, EventArgs e)
-        //{ 
-        //    SomerenLogic.Schedule_Service schedules = new SomerenLogic.Schedule_Service();
+        private void btn_ChangeSchedule_Click(object sender, EventArgs e)
+        {
+            SomerenLogic.Schedule_Service schedules = new SomerenLogic.Schedule_Service();
 
-        //    string firstSelection = listViewSchedule.SelectedItems[0].Text;
-        //    string secondSelection = listViewSchedule.SelectedItems[1].Text;
+            string firstSelection = listViewSchedule.SelectedItems[0].Text;
+            string secondSelection = listViewSchedule.SelectedItems[1].Text;
 
-        //    schedules.UpdateSoort(firstSelection, secondSelection);
-        //    schedules.UpdateSoort(secondSelection, firstSelection);
+            schedules.SwapActivityTime(firstSelection, secondSelection);
 
-        //    showPanel("Schedule");
-        //}
+            showPanel("Schedule");
+        }
     }
 }

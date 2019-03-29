@@ -33,7 +33,7 @@ namespace SomerenUI
             System.Windows.Forms.ColumnHeader KamerNummer;
             System.Windows.Forms.Button btnUpgradeToSupervisor;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SomerenUI));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dashboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -138,12 +138,13 @@ namespace SomerenUI
             this.pnl_Schedule = new System.Windows.Forms.Panel();
             this.btn_ChangeSchedule = new System.Windows.Forms.Button();
             this.listViewSchedule = new System.Windows.Forms.ListView();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chdrScheduleActivity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chdrScheduleSupervisors = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chdrScheduleDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chdrScheduleStartTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chdrScheduleEndTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lbl_Schedule = new System.Windows.Forms.Label();
+            this.chdrScheduleRoosterID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             KamerNummer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             btnUpgradeToSupervisor = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
@@ -859,9 +860,9 @@ namespace SomerenUI
             this.columnHeader2});
             this.listViewCRStudents.FullRowSelect = true;
             this.listViewCRStudents.HideSelection = false;
-            listViewItem1.Tag = "Student_nummer";
+            listViewItem2.Tag = "Student_nummer";
             this.listViewCRStudents.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem2});
             this.listViewCRStudents.Location = new System.Drawing.Point(45, 62);
             this.listViewCRStudents.MultiSelect = false;
             this.listViewCRStudents.Name = "listViewCRStudents";
@@ -1097,18 +1098,20 @@ namespace SomerenUI
             this.btn_ChangeSchedule.Name = "btn_ChangeSchedule";
             this.btn_ChangeSchedule.Size = new System.Drawing.Size(225, 71);
             this.btn_ChangeSchedule.TabIndex = 2;
-            this.btn_ChangeSchedule.Text = "Change schedule (doesn\'t work)";
+            this.btn_ChangeSchedule.Text = "Change schedule (does work)";
             this.btn_ChangeSchedule.UseVisualStyleBackColor = true;
+            this.btn_ChangeSchedule.Click += new System.EventHandler(this.btn_ChangeSchedule_Click);
             // 
             // listViewSchedule
             // 
             this.listViewSchedule.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listViewSchedule.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9});
+            this.chdrScheduleRoosterID,
+            this.chdrScheduleActivity,
+            this.chdrScheduleSupervisors,
+            this.chdrScheduleDate,
+            this.chdrScheduleStartTime,
+            this.chdrScheduleEndTime});
             this.listViewSchedule.FullRowSelect = true;
             this.listViewSchedule.HideSelection = false;
             this.listViewSchedule.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -1119,30 +1122,30 @@ namespace SomerenUI
             this.listViewSchedule.UseCompatibleStateImageBehavior = false;
             this.listViewSchedule.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader5
+            // chdrScheduleActivity
             // 
-            this.columnHeader5.Text = "Activity";
-            this.columnHeader5.Width = 111;
+            this.chdrScheduleActivity.Text = "Activity";
+            this.chdrScheduleActivity.Width = 111;
             // 
-            // columnHeader6
+            // chdrScheduleSupervisors
             // 
-            this.columnHeader6.Text = "Supervisors";
-            this.columnHeader6.Width = 106;
+            this.chdrScheduleSupervisors.Text = "Supervisors";
+            this.chdrScheduleSupervisors.Width = 106;
             // 
-            // columnHeader7
+            // chdrScheduleDate
             // 
-            this.columnHeader7.Text = "Date";
-            this.columnHeader7.Width = 80;
+            this.chdrScheduleDate.Text = "Date";
+            this.chdrScheduleDate.Width = 80;
             // 
-            // columnHeader8
+            // chdrScheduleStartTime
             // 
-            this.columnHeader8.Text = "Start time";
-            this.columnHeader8.Width = 101;
+            this.chdrScheduleStartTime.Text = "Start time";
+            this.chdrScheduleStartTime.Width = 101;
             // 
-            // columnHeader9
+            // chdrScheduleEndTime
             // 
-            this.columnHeader9.Text = "End time";
-            this.columnHeader9.Width = 79;
+            this.chdrScheduleEndTime.Text = "End time";
+            this.chdrScheduleEndTime.Width = 79;
             // 
             // lbl_Schedule
             // 
@@ -1153,6 +1156,10 @@ namespace SomerenUI
             this.lbl_Schedule.Size = new System.Drawing.Size(115, 29);
             this.lbl_Schedule.TabIndex = 0;
             this.lbl_Schedule.Text = "Schedule";
+            // 
+            // chdrScheduleRoosterID
+            // 
+            this.chdrScheduleRoosterID.Text = "RoosterID";
             // 
             // SomerenUI
             // 
@@ -1307,14 +1314,15 @@ namespace SomerenUI
         private System.Windows.Forms.Button btnDowngradeToTeacher;
         private System.Windows.Forms.Panel pnl_Schedule;
         private System.Windows.Forms.ListView listViewSchedule;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader chdrScheduleActivity;
+        private System.Windows.Forms.ColumnHeader chdrScheduleSupervisors;
+        private System.Windows.Forms.ColumnHeader chdrScheduleDate;
+        private System.Windows.Forms.ColumnHeader chdrScheduleStartTime;
+        private System.Windows.Forms.ColumnHeader chdrScheduleEndTime;
         private System.Windows.Forms.Label lbl_Schedule;
         private System.Windows.Forms.ToolStripMenuItem scheduleToolStripMenuItem;
         private System.Windows.Forms.Button btn_ChangeSchedule;
+        private System.Windows.Forms.ColumnHeader chdrScheduleRoosterID;
     }
 }
 
