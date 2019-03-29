@@ -13,8 +13,14 @@ namespace SomerenLogic
     {
         Schedule_DAO schedule_db = new Schedule_DAO();
 
+        public void UpdateSoort(string currentType, string replacementType)
+        {
+            schedule_db.SwapActivities(currentType, replacementType);
+        }
+
         public List<Schedule> GetSchedules()
         {
+
             try
             {
                 List<Schedule> schedules = schedule_db.Db_Get_All_Schedules();

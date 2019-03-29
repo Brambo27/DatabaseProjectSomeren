@@ -15,9 +15,16 @@ namespace SomerenDAL
 
         public List<Schedule> Db_Get_All_Schedules()
         {
-            string query = "SELECT A.Soort, begeleider, datum, tijdStart, tijdEind FROM Rooster AS R JOIN Activiteit AS A ON A.Activiteit_ID = R.activiteit";
+            string query = "SELECT activiteit, begeleider, datum, tijdStart, tijdEind FROM Rooster";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        public void SwapActivities(string currentItem, string replacementItem)
+        {
+            string query = "UPDATE Rooster SET activiteit = '" + replacementItem + "' WHERE activiteit = '" + currentItem + "'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
         }
 
         private List<Schedule> ReadTables(DataTable dataTable)
@@ -28,7 +35,7 @@ namespace SomerenDAL
             {
                 Schedule schedule = new Schedule()
                 {
-                    Activity = (String)dr["Soort"],
+                    Activity = (String)dr["activiteit"],
                     Supervisors = (int)dr["begeleider"],
                     StartDate = (DateTime)dr["datum"],
                     StartTime = (TimeSpan)dr["tijdStart"],
