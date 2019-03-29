@@ -50,6 +50,7 @@ namespace SomerenUI
                 pnl_Revenue.Hide();
                 pnl_CashRegister.Hide();
                 pnl_Activity.Hide();
+                pnl_Schedule.Hide();
 
 
                 // show dashboard
@@ -69,6 +70,7 @@ namespace SomerenUI
                 pnl_Revenue.Hide();
                 pnl_CashRegister.Hide();
                 pnl_Activity.Hide();
+                pnl_Schedule.Hide();
 
 
                 // show students
@@ -101,6 +103,7 @@ namespace SomerenUI
                 pnl_Revenue.Hide();
                 pnl_CashRegister.Hide();
                 pnl_Activity.Hide();
+                pnl_Schedule.Hide();
 
 
                 // show Teachers
@@ -148,6 +151,7 @@ namespace SomerenUI
                 pnl_Revenue.Hide();
                 pnl_CashRegister.Hide();
                 pnl_Activity.Hide();
+                pnl_Schedule.Hide();
 
                 // show Rooms
                 pnl_Rooms.Show();
@@ -182,6 +186,7 @@ namespace SomerenUI
                 pnl_Revenue.Hide();
                 pnl_CashRegister.Hide();
                 pnl_Activity.Hide();
+                pnl_Schedule.Hide();
 
 
                 // show Rooms
@@ -228,6 +233,7 @@ namespace SomerenUI
                 pnl_Revenue.Hide();
                 pnl_CashRegister.Hide();
                 pnl_Activity.Hide();
+                pnl_Schedule.Hide();
 
 
                 // show Rooms
@@ -246,6 +252,7 @@ namespace SomerenUI
                 pnl_DrinkSupply.Hide();
                 pnl_CashRegister.Hide();
                 pnl_Activity.Hide();
+                pnl_Schedule.Hide();
 
                 pnl_Revenue.Show();
 
@@ -305,6 +312,7 @@ namespace SomerenUI
                 pnl_DrinkSupply.Hide();
                 pnl_Revenue.Hide();
                 pnl_Activity.Hide();
+                pnl_Schedule.Hide();
 
                 pnl_CashRegister.Show();
 
@@ -342,6 +350,7 @@ namespace SomerenUI
                 pnl_DrinkSupply.Hide();
                 pnl_Revenue.Hide();
                 pnl_CashRegister.Hide();
+                pnl_Schedule.Hide();
 
                 pnl_Activity.Show();
 
@@ -357,6 +366,48 @@ namespace SomerenUI
                     li.SubItems.Add(A.numberOfStudents.ToString());
                     li.SubItems.Add(A.numerOfDocents.ToString());
                 }
+            }
+            else if (panelName == "Schedule")
+            {
+                pnl_Dashboard.Hide();
+                imgDashboardLogo.Hide();
+                pnl_Teachers.Hide();
+                imgTeachersLogo.Hide();
+                pnl_Students.Hide();
+                imgStudentsLogo.Hide();
+                pnl_Rooms.Hide();
+                imgRoomsLogo.Hide();
+                pnl_DrinkSupply.Hide();
+                pnl_Revenue.Hide();
+                pnl_CashRegister.Hide();
+                pnl_Activity.Hide();
+
+                pnl_Schedule.Show();
+
+                SomerenLogic.Schedule_Service scheduleService = new SomerenLogic.Schedule_Service();
+                List<Schedule> schedules = scheduleService.GetSchedules();
+
+                listViewSchedule.Items.Clear();
+
+                foreach (SomerenModel.Schedule S in schedules)
+                {
+                    ListViewItem li = new ListViewItem(S.Activity);
+                    li.SubItems.Add(S.Supervisors.ToString());
+
+                    DateTime date = S.StartDate.Date;
+                    string dateString = date.ToString("dd-MM-yyyy");
+                    li.SubItems.Add(dateString);
+
+                    string timeString = S.StartTime.ToString(@"hh\:mm");
+                    li.SubItems.Add(timeString);
+
+                    timeString = S.EndTime.ToString(@"hh\:mm");
+                    li.SubItems.Add(timeString);
+
+                    listViewSchedule.Items.Add(li);
+                }
+
+
             }
         }
 
@@ -750,6 +801,11 @@ namespace SomerenUI
             }
 
             showPanel("Teachers");
+        }
+
+        private void scheduleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Schedule");
         }
     }
 }
