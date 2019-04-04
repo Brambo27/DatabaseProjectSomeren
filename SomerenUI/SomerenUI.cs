@@ -824,5 +824,66 @@ namespace SomerenUI
 
             showPanel("Schedule");
         }
+
+        private void btnRegistreren_Click(object sender, EventArgs e)
+        {
+            Gebruiker_Service gebruiker_Service = new Gebruiker_Service();
+            const string LICENTIESLEUTEL = "XsZAb-tgz3PsD-qYh69un-WQCEx";
+
+            if (txtLicentiesleutel.Text == "" || txtRegistrerenEmail.Text == "" || txtRegistrerenNaam.Text == "")
+            {
+                MessageBox.Show("The value can't be nothing");
+                return;
+            }
+            if (txtLicentiesleutel.Text.Equals(LICENTIESLEUTEL))
+            {
+                string naam, email;
+                naam = txtRegistrerenNaam.Text;
+                email = txtRegistrerenEmail.Text;
+                bool requestAdminRights = false;
+
+                DialogResult dialogResult1 = MessageBox.Show("Do you want to ask an admin for admin rights?", "Request admin rights?", MessageBoxButtons.YesNo);
+                if (dialogResult1 == DialogResult.Yes)
+                {
+                    requestAdminRights = true;
+                }
+                else if (dialogResult1 == DialogResult.No)
+                {
+                    requestAdminRights = false;
+                }
+
+                gebruiker_Service.AddUser(naam, email, requestAdminRights);
+            }
+            else
+            {
+                MessageBox.Show("Dit is geen geldige licentiesleutel");
+                return;
+            }
+
+
+
+            //Admin aanvraag code moet gebruikt worden nadat er is ingelogt door een admin.
+
+            //List<Gebruiker> gebruikers = gebruiker_Service.GetUserMetAdminAanvraag();
+            //if (gebruikers.Count != 0)
+            //{
+            //    foreach (Gebruiker gebruiker in gebruikers){
+            //        string naam = gebruiker.Naam;
+            //        string email = gebruiker.Email;
+
+            //        string dialogText = string.Format("Do you want to give this person admin rights? {0}Naam: {1} Email: {2}", Environment.NewLine, naam, email);
+            //        DialogResult dialogResult2 = MessageBox.Show(dialogText, "Admin Rights Request", MessageBoxButtons.YesNo);
+            //        if (dialogResult2 == DialogResult.Yes)
+            //        {
+            //            gebruiker_Service.UpdateAdminRights(true, gebruiker.Gebruiker_ID.ToString());
+            //            gebruiker_Service.UpdateAdminAanvraagStaus(false, gebruiker.Gebruiker_ID.ToString());
+            //        }
+            //        else if (dialogResult2 == DialogResult.No)
+            //        {
+            //            gebruiker_Service.UpdateAdminAanvraagStaus(false, gebruiker.Gebruiker_ID.ToString());
+            //        }
+            //}
+            }
+        }
     }
 }

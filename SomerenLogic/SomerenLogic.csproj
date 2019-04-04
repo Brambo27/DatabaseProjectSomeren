@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Activity_Service.cs" />
     <Compile Include="CashRegister_Service.cs" />
+    <Compile Include="Gebruiker_Service.cs" />
     <Compile Include="Revenue_Service.cs" />
     <Compile Include="Drank_Service.cs" />
     <Compile Include="Room_Service.cs" />
@@ -62,6 +63,9 @@
       <Project>{90a9ed02-35d3-4d84-80e4-458bc835c722}</Project>
       <Name>SomerenModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="_DAO\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

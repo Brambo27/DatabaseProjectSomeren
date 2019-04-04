@@ -12,6 +12,7 @@ namespace SomerenLogic
     public class Activity_Service
     {
         Activity_DAO activity_db = new Activity_DAO();
+        
         public void NewActivity(string naam, int students, int docents)
         {
             activity_db.New_Activity(naam, students, docents);

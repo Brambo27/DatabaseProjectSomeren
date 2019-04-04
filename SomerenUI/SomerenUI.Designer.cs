@@ -33,7 +33,7 @@ namespace SomerenUI
             System.Windows.Forms.ColumnHeader KamerNummer;
             System.Windows.Forms.Button btnUpgradeToSupervisor;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SomerenUI));
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dashboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -138,13 +138,22 @@ namespace SomerenUI
             this.pnl_Schedule = new System.Windows.Forms.Panel();
             this.btn_ChangeSchedule = new System.Windows.Forms.Button();
             this.listViewSchedule = new System.Windows.Forms.ListView();
+            this.chdrScheduleRoosterID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chdrScheduleActivity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chdrScheduleSupervisors = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chdrScheduleDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chdrScheduleStartTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chdrScheduleEndTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lbl_Schedule = new System.Windows.Forms.Label();
-            this.chdrScheduleRoosterID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pnlRegistratie = new System.Windows.Forms.Panel();
+            this.btnRegistreren = new System.Windows.Forms.Button();
+            this.lblRegistratieSleutel = new System.Windows.Forms.Label();
+            this.txtLicentiesleutel = new System.Windows.Forms.TextBox();
+            this.lblRegistratieEmail = new System.Windows.Forms.Label();
+            this.lblRegistratieNaam = new System.Windows.Forms.Label();
+            this.lblRegistratieTitle = new System.Windows.Forms.Label();
+            this.txtRegistrerenEmail = new System.Windows.Forms.TextBox();
+            this.txtRegistrerenNaam = new System.Windows.Forms.TextBox();
             KamerNummer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             btnUpgradeToSupervisor = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
@@ -161,6 +170,7 @@ namespace SomerenUI
             this.pnl_CashRegister.SuspendLayout();
             this.pnl_Activity.SuspendLayout();
             this.pnl_Schedule.SuspendLayout();
+            this.pnlRegistratie.SuspendLayout();
             this.SuspendLayout();
             // 
             // KamerNummer
@@ -861,9 +871,9 @@ namespace SomerenUI
             this.columnHeader2});
             this.listViewCRStudents.FullRowSelect = true;
             this.listViewCRStudents.HideSelection = false;
-            listViewItem3.Tag = "Student_nummer";
+            listViewItem1.Tag = "Student_nummer";
             this.listViewCRStudents.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem1});
             this.listViewCRStudents.Location = new System.Drawing.Point(45, 62);
             this.listViewCRStudents.MultiSelect = false;
             this.listViewCRStudents.Name = "listViewCRStudents";
@@ -1123,6 +1133,10 @@ namespace SomerenUI
             this.listViewSchedule.UseCompatibleStateImageBehavior = false;
             this.listViewSchedule.View = System.Windows.Forms.View.Details;
             // 
+            // chdrScheduleRoosterID
+            // 
+            this.chdrScheduleRoosterID.Text = "RoosterID";
+            // 
             // chdrScheduleActivity
             // 
             this.chdrScheduleActivity.Text = "Activity";
@@ -1158,15 +1172,99 @@ namespace SomerenUI
             this.lbl_Schedule.TabIndex = 0;
             this.lbl_Schedule.Text = "Schedule";
             // 
-            // chdrScheduleRoosterID
+            // pnlRegistratie
             // 
-            this.chdrScheduleRoosterID.Text = "RoosterID";
+            this.pnlRegistratie.Controls.Add(this.txtRegistrerenNaam);
+            this.pnlRegistratie.Controls.Add(this.txtRegistrerenEmail);
+            this.pnlRegistratie.Controls.Add(this.btnRegistreren);
+            this.pnlRegistratie.Controls.Add(this.lblRegistratieSleutel);
+            this.pnlRegistratie.Controls.Add(this.txtLicentiesleutel);
+            this.pnlRegistratie.Controls.Add(this.lblRegistratieEmail);
+            this.pnlRegistratie.Controls.Add(this.lblRegistratieNaam);
+            this.pnlRegistratie.Controls.Add(this.lblRegistratieTitle);
+            this.pnlRegistratie.Location = new System.Drawing.Point(12, 30);
+            this.pnlRegistratie.Name = "pnlRegistratie";
+            this.pnlRegistratie.Size = new System.Drawing.Size(943, 470);
+            this.pnlRegistratie.TabIndex = 25;
+            // 
+            // btnRegistreren
+            // 
+            this.btnRegistreren.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.btnRegistreren.Location = new System.Drawing.Point(16, 283);
+            this.btnRegistreren.Name = "btnRegistreren";
+            this.btnRegistreren.Size = new System.Drawing.Size(300, 98);
+            this.btnRegistreren.TabIndex = 5;
+            this.btnRegistreren.Text = "Registreren";
+            this.btnRegistreren.UseVisualStyleBackColor = true;
+            this.btnRegistreren.Click += new System.EventHandler(this.btnRegistreren_Click);
+            // 
+            // lblRegistratieSleutel
+            // 
+            this.lblRegistratieSleutel.AutoSize = true;
+            this.lblRegistratieSleutel.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
+            this.lblRegistratieSleutel.Location = new System.Drawing.Point(13, 181);
+            this.lblRegistratieSleutel.Name = "lblRegistratieSleutel";
+            this.lblRegistratieSleutel.Size = new System.Drawing.Size(174, 29);
+            this.lblRegistratieSleutel.TabIndex = 4;
+            this.lblRegistratieSleutel.Text = "Licentiesleutel:";
+            // 
+            // txtLicentiesleutel
+            // 
+            this.txtLicentiesleutel.Location = new System.Drawing.Point(18, 221);
+            this.txtLicentiesleutel.Name = "txtLicentiesleutel";
+            this.txtLicentiesleutel.Size = new System.Drawing.Size(890, 20);
+            this.txtLicentiesleutel.TabIndex = 3;
+            // 
+            // lblRegistratieEmail
+            // 
+            this.lblRegistratieEmail.AutoSize = true;
+            this.lblRegistratieEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
+            this.lblRegistratieEmail.Location = new System.Drawing.Point(14, 116);
+            this.lblRegistratieEmail.Name = "lblRegistratieEmail";
+            this.lblRegistratieEmail.Size = new System.Drawing.Size(80, 29);
+            this.lblRegistratieEmail.TabIndex = 2;
+            this.lblRegistratieEmail.Text = "Email:";
+            // 
+            // lblRegistratieNaam
+            // 
+            this.lblRegistratieNaam.AutoSize = true;
+            this.lblRegistratieNaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
+            this.lblRegistratieNaam.Location = new System.Drawing.Point(14, 87);
+            this.lblRegistratieNaam.Name = "lblRegistratieNaam";
+            this.lblRegistratieNaam.Size = new System.Drawing.Size(83, 29);
+            this.lblRegistratieNaam.TabIndex = 1;
+            this.lblRegistratieNaam.Text = "Naam:";
+            // 
+            // lblRegistratieTitle
+            // 
+            this.lblRegistratieTitle.AutoSize = true;
+            this.lblRegistratieTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
+            this.lblRegistratieTitle.Location = new System.Drawing.Point(13, 19);
+            this.lblRegistratieTitle.Name = "lblRegistratieTitle";
+            this.lblRegistratieTitle.Size = new System.Drawing.Size(129, 29);
+            this.lblRegistratieTitle.TabIndex = 0;
+            this.lblRegistratieTitle.Text = "Registratie";
+            // 
+            // txtRegistrerenEmail
+            // 
+            this.txtRegistrerenEmail.Location = new System.Drawing.Point(103, 123);
+            this.txtRegistrerenEmail.Name = "txtRegistrerenEmail";
+            this.txtRegistrerenEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtRegistrerenEmail.TabIndex = 26;
+            // 
+            // txtRegistrerenNaam
+            // 
+            this.txtRegistrerenNaam.Location = new System.Drawing.Point(103, 96);
+            this.txtRegistrerenNaam.Name = "txtRegistrerenNaam";
+            this.txtRegistrerenNaam.Size = new System.Drawing.Size(100, 20);
+            this.txtRegistrerenNaam.TabIndex = 27;
             // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1081, 505);
+            this.Controls.Add(this.pnlRegistratie);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pnl_Students);
             this.Controls.Add(this.pnl_CashRegister);
@@ -1207,6 +1305,8 @@ namespace SomerenUI
             this.pnl_Activity.PerformLayout();
             this.pnl_Schedule.ResumeLayout(false);
             this.pnl_Schedule.PerformLayout();
+            this.pnlRegistratie.ResumeLayout(false);
+            this.pnlRegistratie.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1324,6 +1424,15 @@ namespace SomerenUI
         private System.Windows.Forms.ToolStripMenuItem scheduleToolStripMenuItem;
         private System.Windows.Forms.Button btn_ChangeSchedule;
         private System.Windows.Forms.ColumnHeader chdrScheduleRoosterID;
+        private System.Windows.Forms.Panel pnlRegistratie;
+        private System.Windows.Forms.Button btnRegistreren;
+        private System.Windows.Forms.Label lblRegistratieSleutel;
+        private System.Windows.Forms.TextBox txtLicentiesleutel;
+        private System.Windows.Forms.Label lblRegistratieEmail;
+        private System.Windows.Forms.Label lblRegistratieNaam;
+        private System.Windows.Forms.Label lblRegistratieTitle;
+        private System.Windows.Forms.TextBox txtRegistrerenNaam;
+        private System.Windows.Forms.TextBox txtRegistrerenEmail;
     }
 }
 
