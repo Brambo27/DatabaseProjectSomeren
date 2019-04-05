@@ -885,31 +885,6 @@ namespace SomerenUI
                 MessageBox.Show("Dit is geen geldige licentiesleutel");
                 return;
             }
-
-
-
-            //Admin aanvraag code moet gebruikt worden nadat er is ingelogt door een admin.
-
-            //List<Gebruiker> gebruikers = gebruiker_Service.GetUserMetAdminAanvraag();
-            //if (gebruikers.Count != 0)
-            //{
-            //    foreach (Gebruiker gebruiker in gebruikers){
-            //        string naam = gebruiker.Naam;
-            //        string email = gebruiker.Email;
-
-            //        string dialogText = string.Format("Do you want to give this person admin rights? {0}Naam: {1} Email: {2}", Environment.NewLine, naam, email);
-            //        DialogResult dialogResult2 = MessageBox.Show(dialogText, "Admin Rights Request", MessageBoxButtons.YesNo);
-            //        if (dialogResult2 == DialogResult.Yes)
-            //        {
-            //            gebruiker_Service.UpdateAdminRights(true, gebruiker.Gebruiker_ID.ToString());
-            //            gebruiker_Service.UpdateAdminAanvraagStaus(false, gebruiker.Gebruiker_ID.ToString());
-            //        }
-            //        else if (dialogResult2 == DialogResult.No)
-            //        {
-            //            gebruiker_Service.UpdateAdminAanvraagStaus(false, gebruiker.Gebruiker_ID.ToString());
-            //        }
-            //}
-            //}
         }
 
         private void btn_login_Click(object sender, EventArgs e)
@@ -935,6 +910,31 @@ namespace SomerenUI
                         if (gebruiker.Wachtwoord == wachtwoord)
                         {
                             showPanel("Dashboard");
+
+                            if (gebruiker_Service.IsUserAdmin(gebruiker.Naam, gebruiker.Email))
+                            {
+                                List<Gebruiker> gebruikerMetAdminAanvraag = gebruiker_Service.GetUserMetAdminAanvraag();
+                                if (gebruikerMetAdminAanvraag.Count != 0)
+                                {
+                                    foreach (Gebruiker g in gebruikerMetAdminAanvraag)
+                                    {
+                                        string naamAanvraagGebruiker = g.Naam;
+                                        string emailAanvraagGebruieker = g.Email;
+
+                                        string dialogText = string.Format("Do you want to give this person admin rights? {0}Naam: {1} Email: {2}", Environment.NewLine, naamAanvraagGebruiker, emailAanvraagGebruieker);
+                                        DialogResult dialogResult2 = MessageBox.Show(dialogText, "Admin Rights Request", MessageBoxButtons.YesNo);
+                                        if (dialogResult2 == DialogResult.Yes)
+                                        {
+                                            gebruiker_Service.UpdateAdminRights(true, g.Gebruiker_ID.ToString());
+                                            gebruiker_Service.UpdateAdminAanvraagStaus(false, g.Gebruiker_ID.ToString());
+                                        }
+                                        else if (dialogResult2 == DialogResult.No)
+                                        {
+                                            gebruiker_Service.UpdateAdminAanvraagStaus(false, g.Gebruiker_ID.ToString());
+                                        }
+                                    }
+                                }
+                            }
                         }
                         else
                         {
@@ -1056,7 +1056,7 @@ namespace SomerenUI
                 string nieuwWachtwoord = txt_nieuwWachtwoord.Text;
                 int lengteWachtwoord = nieuwWachtwoord.Length;
                 if (lengteWachtwoord <= 7 || nieuwWachtwoord.Any(char.IsUpper) == false || nieuwWachtwoord.Any(char.IsLower) == false || 
-                                              nieuwWachtwoord.Any(char.IsDigit) == false || nieuwWachtwoord.Any(char.IsSymbol) == false)
+                                              nieuwWachtwoord.Any(char.IsDigit) == false || nieuwWachtwoord.Any(char.IsSymbol) == false || !nieuwWachtwoord.Any(char.IsPunctuation))
                 {
                     MessageBox.Show("Wachtwoord voldoet niet aan alle eisen.");
                 }

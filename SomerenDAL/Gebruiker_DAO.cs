@@ -62,7 +62,7 @@ namespace SomerenDAL
 
         public List<Gebruiker> Db_Get_All_Gebruikers()
         {
-            string query = "SELECT email, wachtwoord, geheimeVraag, geheimAntwoord FROM gebruiker";
+            string query = "SELECT naam, email, wachtwoord, geheimeVraag, geheimAntwoord FROM gebruiker";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return GetGebruikers(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -92,8 +92,9 @@ namespace SomerenDAL
             {
                 Gebruiker gebruiker = new Gebruiker()
                 {
-                    Email = (string)dr["email"].ToString(),
-                    Wachtwoord = (string)dr["wachtwoord"].ToString(),
+                    Naam = (string)dr["naam"],
+                    Email = (string)dr["email"],
+                    Wachtwoord = (string)dr["wachtwoord"],
                     GeheimeVraag = (string)dr["geheimeVraag"],
                     GeheimeAntwoord = (string)dr["geheimAntwoord"]
                 };
