@@ -30,7 +30,7 @@ namespace SomerenUI
 
         private void SomerenUI_Load(object sender, EventArgs e)
         {
-            showPanel("Dashboard");
+            showPanel("Registratie");
         }
 
         private void showPanel(string panelName)
@@ -51,6 +51,7 @@ namespace SomerenUI
                 pnl_CashRegister.Hide();
                 pnl_Activity.Hide();
                 pnl_Schedule.Hide();
+                pnl_Registratie.Hide();
 
 
                 // show dashboard
@@ -71,6 +72,7 @@ namespace SomerenUI
                 pnl_CashRegister.Hide();
                 pnl_Activity.Hide();
                 pnl_Schedule.Hide();
+                pnl_Registratie.Hide();
 
 
                 // show students
@@ -106,6 +108,7 @@ namespace SomerenUI
                 pnl_CashRegister.Hide();
                 pnl_Activity.Hide();
                 pnl_Schedule.Hide();
+                pnl_Registratie.Hide();
 
 
                 // show Teachers
@@ -154,6 +157,7 @@ namespace SomerenUI
                 pnl_CashRegister.Hide();
                 pnl_Activity.Hide();
                 pnl_Schedule.Hide();
+                pnl_Registratie.Hide();
 
                 // show Rooms
                 pnl_Rooms.Show();
@@ -189,6 +193,7 @@ namespace SomerenUI
                 pnl_CashRegister.Hide();
                 pnl_Activity.Hide();
                 pnl_Schedule.Hide();
+                pnl_Registratie.Hide();
 
 
                 // show Rooms
@@ -236,6 +241,7 @@ namespace SomerenUI
                 pnl_CashRegister.Hide();
                 pnl_Activity.Hide();
                 pnl_Schedule.Hide();
+                pnl_Registratie.Hide();
 
 
                 // show Rooms
@@ -255,6 +261,7 @@ namespace SomerenUI
                 pnl_CashRegister.Hide();
                 pnl_Activity.Hide();
                 pnl_Schedule.Hide();
+                pnl_Registratie.Hide();
 
                 pnl_Revenue.Show();
 
@@ -315,6 +322,7 @@ namespace SomerenUI
                 pnl_Revenue.Hide();
                 pnl_Activity.Hide();
                 pnl_Schedule.Hide();
+                pnl_Registratie.Hide();
 
                 pnl_CashRegister.Show();
 
@@ -353,6 +361,7 @@ namespace SomerenUI
                 pnl_Revenue.Hide();
                 pnl_CashRegister.Hide();
                 pnl_Schedule.Hide();
+                pnl_Registratie.Hide();
 
                 pnl_Activity.Show();
 
@@ -383,6 +392,7 @@ namespace SomerenUI
                 pnl_Revenue.Hide();
                 pnl_CashRegister.Hide();
                 pnl_Activity.Hide();
+                pnl_Registratie.Hide();
 
                 pnl_Schedule.Show();
 
@@ -411,8 +421,24 @@ namespace SomerenUI
 
                     listViewSchedule.Items.Add(li);
                 }
+            }
+            else if (panelName == "Registratie")
+            {
+                pnl_Dashboard.Hide();
+                imgDashboardLogo.Hide();
+                pnl_Teachers.Hide();
+                imgTeachersLogo.Hide();
+                pnl_Students.Hide();
+                imgStudentsLogo.Hide();
+                pnl_Rooms.Hide();
+                imgRoomsLogo.Hide();
+                pnl_DrinkSupply.Hide();
+                pnl_Revenue.Hide();
+                pnl_CashRegister.Hide();
+                pnl_Activity.Hide();
+                pnl_Schedule.Hide();
 
-
+                pnl_Registratie.Show();
             }
         }
 
@@ -884,6 +910,44 @@ namespace SomerenUI
             //        }
             //}
             //}
+        }
+
+        private void btn_login_Click(object sender, EventArgs e)
+        {
+            SomerenLogic.Gebruiker_Service gebruiker_Service = new SomerenLogic.Gebruiker_Service();
+            List<Gebruiker> gebruikers = gebruiker_Service.GetUsers();
+
+            if (txt_email.Text == "" || txt_wachtwoord.Text == "")
+            {
+                MessageBox.Show("Email en/of wachtwoord mag niet leeg zijn");
+            }
+            else
+            {
+                string email = txt_email.Text;
+                string wachtwoord = txt_wachtwoord.Text;
+                bool emailBekend = false;
+
+                foreach (Gebruiker gebruiker in gebruikers)
+                {
+                    if (gebruiker.Email == email)
+                    {
+                        emailBekend = true;
+                        if (gebruiker.Wachtwoord == wachtwoord)
+                        {
+                            showPanel("Dashboard");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ongeldig wachtwoord");
+                            break;
+                        }
+                    }
+                }
+                if (!emailBekend)
+                {
+                    MessageBox.Show("Dit email is niet bekent, registreer eerst");
+                }
+            }       
         }
     }
 }

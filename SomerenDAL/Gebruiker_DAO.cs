@@ -53,6 +53,13 @@ namespace SomerenDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
+        public List<Gebruiker> Db_Get_All_Gebruikers()
+        {
+            string query = "SELECT email, wachtwoord FROM gebruiker";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return GetGebruikers(ExecuteSelectQuery(query, sqlParameters));
+        }
+
         private List<Gebruiker> ReadUserTable(DataTable dataTable)
         {
             List<Gebruiker> gebruikers = new List<Gebruiker>();
@@ -64,6 +71,22 @@ namespace SomerenDAL
                     Naam = (string)dr["naam"],
                     Email = (string)dr["email"],
                     Gebruiker_ID = (int)dr["gebruiker_ID"]
+                };
+                gebruikers.Add(gebruiker);
+            }
+            return gebruikers;
+        }
+
+        private List<Gebruiker> GetGebruikers(DataTable dataTable)
+        {
+            List<Gebruiker> gebruikers = new List<Gebruiker>();
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                Gebruiker gebruiker = new Gebruiker()
+                {
+                    Email = (string)dr["email"].ToString(),
+                    Wachtwoord = (string)dr["wachtwoord"].ToString()
                 };
                 gebruikers.Add(gebruiker);
             }

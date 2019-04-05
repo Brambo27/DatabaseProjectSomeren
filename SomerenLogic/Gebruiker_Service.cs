@@ -36,6 +36,11 @@ namespace SomerenLogic
         {
             gebruiker_db.UpdateAdminRequestStatus(SetStatusTo, gebruiker_ID);
         }
+
+        public List<Gebruiker> GetUsers()
+        {
+            return gebruiker_db.Db_Get_All_Gebruikers();
+        }
     }
 
 }

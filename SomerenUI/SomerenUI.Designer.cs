@@ -145,7 +145,7 @@ namespace SomerenUI
             this.chdrScheduleStartTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chdrScheduleEndTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lbl_Schedule = new System.Windows.Forms.Label();
-            this.pnlRegistratie = new System.Windows.Forms.Panel();
+            this.pnl_Registratie = new System.Windows.Forms.Panel();
             this.txtRegistrerenNaam = new System.Windows.Forms.TextBox();
             this.txtRegistrerenEmail = new System.Windows.Forms.TextBox();
             this.btnRegistreren = new System.Windows.Forms.Button();
@@ -154,6 +154,13 @@ namespace SomerenUI
             this.lblRegistratieEmail = new System.Windows.Forms.Label();
             this.lblRegistratieNaam = new System.Windows.Forms.Label();
             this.lblRegistratieTitle = new System.Windows.Forms.Label();
+            this.lbl_seperator = new System.Windows.Forms.Label();
+            this.lbl_Inloggen = new System.Windows.Forms.Label();
+            this.lbl_inlog_email = new System.Windows.Forms.Label();
+            this.lbl_wachtwoord = new System.Windows.Forms.Label();
+            this.txt_email = new System.Windows.Forms.TextBox();
+            this.txt_wachtwoord = new System.Windows.Forms.TextBox();
+            this.btn_login = new System.Windows.Forms.Button();
             KamerNummer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             btnUpgradeToSupervisor = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
@@ -170,7 +177,7 @@ namespace SomerenUI
             this.pnl_CashRegister.SuspendLayout();
             this.pnl_Activity.SuspendLayout();
             this.pnl_Schedule.SuspendLayout();
-            this.pnlRegistratie.SuspendLayout();
+            this.pnl_Registratie.SuspendLayout();
             this.SuspendLayout();
             // 
             // KamerNummer
@@ -1172,42 +1179,49 @@ namespace SomerenUI
             this.lbl_Schedule.TabIndex = 0;
             this.lbl_Schedule.Text = "Schedule";
             // 
-            // pnlRegistratie
+            // pnl_Registratie
             // 
-            this.pnlRegistratie.Controls.Add(this.txtRegistrerenNaam);
-            this.pnlRegistratie.Controls.Add(this.txtRegistrerenEmail);
-            this.pnlRegistratie.Controls.Add(this.btnRegistreren);
-            this.pnlRegistratie.Controls.Add(this.lblRegistratieSleutel);
-            this.pnlRegistratie.Controls.Add(this.txtLicentiesleutel);
-            this.pnlRegistratie.Controls.Add(this.lblRegistratieEmail);
-            this.pnlRegistratie.Controls.Add(this.lblRegistratieNaam);
-            this.pnlRegistratie.Controls.Add(this.lblRegistratieTitle);
-            this.pnlRegistratie.Location = new System.Drawing.Point(12, 30);
-            this.pnlRegistratie.Name = "pnlRegistratie";
-            this.pnlRegistratie.Size = new System.Drawing.Size(943, 470);
-            this.pnlRegistratie.TabIndex = 25;
-            this.pnlRegistratie.Visible = false;
+            this.pnl_Registratie.Controls.Add(this.btn_login);
+            this.pnl_Registratie.Controls.Add(this.txt_wachtwoord);
+            this.pnl_Registratie.Controls.Add(this.txt_email);
+            this.pnl_Registratie.Controls.Add(this.lbl_wachtwoord);
+            this.pnl_Registratie.Controls.Add(this.lbl_inlog_email);
+            this.pnl_Registratie.Controls.Add(this.lbl_Inloggen);
+            this.pnl_Registratie.Controls.Add(this.lbl_seperator);
+            this.pnl_Registratie.Controls.Add(this.txtRegistrerenNaam);
+            this.pnl_Registratie.Controls.Add(this.txtRegistrerenEmail);
+            this.pnl_Registratie.Controls.Add(this.btnRegistreren);
+            this.pnl_Registratie.Controls.Add(this.lblRegistratieSleutel);
+            this.pnl_Registratie.Controls.Add(this.txtLicentiesleutel);
+            this.pnl_Registratie.Controls.Add(this.lblRegistratieEmail);
+            this.pnl_Registratie.Controls.Add(this.lblRegistratieNaam);
+            this.pnl_Registratie.Controls.Add(this.lblRegistratieTitle);
+            this.pnl_Registratie.Location = new System.Drawing.Point(0, 0);
+            this.pnl_Registratie.Name = "pnl_Registratie";
+            this.pnl_Registratie.Size = new System.Drawing.Size(1081, 500);
+            this.pnl_Registratie.TabIndex = 25;
+            this.pnl_Registratie.Visible = false;
             // 
             // txtRegistrerenNaam
             // 
-            this.txtRegistrerenNaam.Location = new System.Drawing.Point(103, 96);
+            this.txtRegistrerenNaam.Location = new System.Drawing.Point(100, 65);
             this.txtRegistrerenNaam.Name = "txtRegistrerenNaam";
-            this.txtRegistrerenNaam.Size = new System.Drawing.Size(100, 20);
+            this.txtRegistrerenNaam.Size = new System.Drawing.Size(133, 20);
             this.txtRegistrerenNaam.TabIndex = 27;
             // 
             // txtRegistrerenEmail
             // 
-            this.txtRegistrerenEmail.Location = new System.Drawing.Point(103, 123);
+            this.txtRegistrerenEmail.Location = new System.Drawing.Point(100, 86);
             this.txtRegistrerenEmail.Name = "txtRegistrerenEmail";
-            this.txtRegistrerenEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtRegistrerenEmail.Size = new System.Drawing.Size(221, 20);
             this.txtRegistrerenEmail.TabIndex = 26;
             // 
             // btnRegistreren
             // 
-            this.btnRegistreren.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.btnRegistreren.Location = new System.Drawing.Point(16, 283);
+            this.btnRegistreren.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
+            this.btnRegistreren.Location = new System.Drawing.Point(16, 209);
             this.btnRegistreren.Name = "btnRegistreren";
-            this.btnRegistreren.Size = new System.Drawing.Size(300, 98);
+            this.btnRegistreren.Size = new System.Drawing.Size(351, 47);
             this.btnRegistreren.TabIndex = 5;
             this.btnRegistreren.Text = "Registreren";
             this.btnRegistreren.UseVisualStyleBackColor = true;
@@ -1216,37 +1230,37 @@ namespace SomerenUI
             // lblRegistratieSleutel
             // 
             this.lblRegistratieSleutel.AutoSize = true;
-            this.lblRegistratieSleutel.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
-            this.lblRegistratieSleutel.Location = new System.Drawing.Point(13, 181);
+            this.lblRegistratieSleutel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblRegistratieSleutel.Location = new System.Drawing.Point(11, 127);
             this.lblRegistratieSleutel.Name = "lblRegistratieSleutel";
-            this.lblRegistratieSleutel.Size = new System.Drawing.Size(174, 29);
+            this.lblRegistratieSleutel.Size = new System.Drawing.Size(108, 20);
             this.lblRegistratieSleutel.TabIndex = 4;
-            this.lblRegistratieSleutel.Text = "Licentiesleutel:";
+            this.lblRegistratieSleutel.Text = "licentiesleutel:";
             // 
             // txtLicentiesleutel
             // 
-            this.txtLicentiesleutel.Location = new System.Drawing.Point(18, 221);
+            this.txtLicentiesleutel.Location = new System.Drawing.Point(15, 148);
             this.txtLicentiesleutel.Name = "txtLicentiesleutel";
-            this.txtLicentiesleutel.Size = new System.Drawing.Size(890, 20);
+            this.txtLicentiesleutel.Size = new System.Drawing.Size(352, 20);
             this.txtLicentiesleutel.TabIndex = 3;
             // 
             // lblRegistratieEmail
             // 
             this.lblRegistratieEmail.AutoSize = true;
-            this.lblRegistratieEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
-            this.lblRegistratieEmail.Location = new System.Drawing.Point(14, 116);
+            this.lblRegistratieEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblRegistratieEmail.Location = new System.Drawing.Point(12, 84);
             this.lblRegistratieEmail.Name = "lblRegistratieEmail";
-            this.lblRegistratieEmail.Size = new System.Drawing.Size(80, 29);
+            this.lblRegistratieEmail.Size = new System.Drawing.Size(52, 20);
             this.lblRegistratieEmail.TabIndex = 2;
             this.lblRegistratieEmail.Text = "Email:";
             // 
             // lblRegistratieNaam
             // 
             this.lblRegistratieNaam.AutoSize = true;
-            this.lblRegistratieNaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
-            this.lblRegistratieNaam.Location = new System.Drawing.Point(14, 87);
+            this.lblRegistratieNaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblRegistratieNaam.Location = new System.Drawing.Point(11, 63);
             this.lblRegistratieNaam.Name = "lblRegistratieNaam";
-            this.lblRegistratieNaam.Size = new System.Drawing.Size(83, 29);
+            this.lblRegistratieNaam.Size = new System.Drawing.Size(55, 20);
             this.lblRegistratieNaam.TabIndex = 1;
             this.lblRegistratieNaam.Text = "Naam:";
             // 
@@ -1254,18 +1268,83 @@ namespace SomerenUI
             // 
             this.lblRegistratieTitle.AutoSize = true;
             this.lblRegistratieTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
-            this.lblRegistratieTitle.Location = new System.Drawing.Point(13, 19);
+            this.lblRegistratieTitle.Location = new System.Drawing.Point(10, 11);
             this.lblRegistratieTitle.Name = "lblRegistratieTitle";
             this.lblRegistratieTitle.Size = new System.Drawing.Size(129, 29);
             this.lblRegistratieTitle.TabIndex = 0;
             this.lblRegistratieTitle.Text = "Registratie";
+            // 
+            // lbl_seperator
+            // 
+            this.lbl_seperator.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbl_seperator.Location = new System.Drawing.Point(533, 0);
+            this.lbl_seperator.Name = "lbl_seperator";
+            this.lbl_seperator.Size = new System.Drawing.Size(10, 506);
+            this.lbl_seperator.TabIndex = 28;
+            // 
+            // lbl_Inloggen
+            // 
+            this.lbl_Inloggen.AutoSize = true;
+            this.lbl_Inloggen.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
+            this.lbl_Inloggen.Location = new System.Drawing.Point(549, 11);
+            this.lbl_Inloggen.Name = "lbl_Inloggen";
+            this.lbl_Inloggen.Size = new System.Drawing.Size(107, 29);
+            this.lbl_Inloggen.TabIndex = 29;
+            this.lbl_Inloggen.Text = "Inloggen";
+            // 
+            // lbl_inlog_email
+            // 
+            this.lbl_inlog_email.AutoSize = true;
+            this.lbl_inlog_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lbl_inlog_email.Location = new System.Drawing.Point(551, 68);
+            this.lbl_inlog_email.Name = "lbl_inlog_email";
+            this.lbl_inlog_email.Size = new System.Drawing.Size(52, 20);
+            this.lbl_inlog_email.TabIndex = 30;
+            this.lbl_inlog_email.Text = "Email:";
+            // 
+            // lbl_wachtwoord
+            // 
+            this.lbl_wachtwoord.AutoSize = true;
+            this.lbl_wachtwoord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lbl_wachtwoord.Location = new System.Drawing.Point(552, 92);
+            this.lbl_wachtwoord.Name = "lbl_wachtwoord";
+            this.lbl_wachtwoord.Size = new System.Drawing.Size(102, 20);
+            this.lbl_wachtwoord.TabIndex = 31;
+            this.lbl_wachtwoord.Text = "Wachtwoord:";
+            // 
+            // txt_email
+            // 
+            this.txt_email.Location = new System.Drawing.Point(697, 73);
+            this.txt_email.Name = "txt_email";
+            this.txt_email.Size = new System.Drawing.Size(199, 20);
+            this.txt_email.TabIndex = 32;
+            // 
+            // txt_wachtwoord
+            // 
+            this.txt_wachtwoord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txt_wachtwoord.Location = new System.Drawing.Point(697, 94);
+            this.txt_wachtwoord.Name = "txt_wachtwoord";
+            this.txt_wachtwoord.PasswordChar = '*';
+            this.txt_wachtwoord.Size = new System.Drawing.Size(199, 23);
+            this.txt_wachtwoord.TabIndex = 33;
+            // 
+            // btn_login
+            // 
+            this.btn_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btn_login.Location = new System.Drawing.Point(556, 135);
+            this.btn_login.Name = "btn_login";
+            this.btn_login.Size = new System.Drawing.Size(340, 33);
+            this.btn_login.TabIndex = 34;
+            this.btn_login.Text = "Log in";
+            this.btn_login.UseVisualStyleBackColor = true;
+            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1081, 505);
-            this.Controls.Add(this.pnlRegistratie);
+            this.Controls.Add(this.pnl_Registratie);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pnl_Students);
             this.Controls.Add(this.pnl_CashRegister);
@@ -1306,8 +1385,8 @@ namespace SomerenUI
             this.pnl_Activity.PerformLayout();
             this.pnl_Schedule.ResumeLayout(false);
             this.pnl_Schedule.PerformLayout();
-            this.pnlRegistratie.ResumeLayout(false);
-            this.pnlRegistratie.PerformLayout();
+            this.pnl_Registratie.ResumeLayout(false);
+            this.pnl_Registratie.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1425,7 +1504,7 @@ namespace SomerenUI
         private System.Windows.Forms.ToolStripMenuItem scheduleToolStripMenuItem;
         private System.Windows.Forms.Button btn_ChangeSchedule;
         private System.Windows.Forms.ColumnHeader chdrScheduleRoosterID;
-        private System.Windows.Forms.Panel pnlRegistratie;
+        private System.Windows.Forms.Panel pnl_Registratie;
         private System.Windows.Forms.Button btnRegistreren;
         private System.Windows.Forms.Label lblRegistratieSleutel;
         private System.Windows.Forms.TextBox txtLicentiesleutel;
@@ -1434,6 +1513,13 @@ namespace SomerenUI
         private System.Windows.Forms.Label lblRegistratieTitle;
         private System.Windows.Forms.TextBox txtRegistrerenNaam;
         private System.Windows.Forms.TextBox txtRegistrerenEmail;
+        private System.Windows.Forms.Button btn_login;
+        private System.Windows.Forms.TextBox txt_wachtwoord;
+        private System.Windows.Forms.TextBox txt_email;
+        private System.Windows.Forms.Label lbl_wachtwoord;
+        private System.Windows.Forms.Label lbl_inlog_email;
+        private System.Windows.Forms.Label lbl_Inloggen;
+        private System.Windows.Forms.Label lbl_seperator;
     }
 }
 
