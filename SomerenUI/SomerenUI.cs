@@ -883,7 +883,7 @@ namespace SomerenUI
             //            gebruiker_Service.UpdateAdminAanvraagStaus(false, gebruiker.Gebruiker_ID.ToString());
             //        }
             //}
-            }
+            //}
         }
     }
 }

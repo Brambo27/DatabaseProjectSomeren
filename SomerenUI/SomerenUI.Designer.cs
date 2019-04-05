@@ -33,7 +33,7 @@ namespace SomerenUI
             System.Windows.Forms.ColumnHeader KamerNummer;
             System.Windows.Forms.Button btnUpgradeToSupervisor;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SomerenUI));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dashboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -146,14 +146,14 @@ namespace SomerenUI
             this.chdrScheduleEndTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lbl_Schedule = new System.Windows.Forms.Label();
             this.pnlRegistratie = new System.Windows.Forms.Panel();
+            this.txtRegistrerenNaam = new System.Windows.Forms.TextBox();
+            this.txtRegistrerenEmail = new System.Windows.Forms.TextBox();
             this.btnRegistreren = new System.Windows.Forms.Button();
             this.lblRegistratieSleutel = new System.Windows.Forms.Label();
             this.txtLicentiesleutel = new System.Windows.Forms.TextBox();
             this.lblRegistratieEmail = new System.Windows.Forms.Label();
             this.lblRegistratieNaam = new System.Windows.Forms.Label();
             this.lblRegistratieTitle = new System.Windows.Forms.Label();
-            this.txtRegistrerenEmail = new System.Windows.Forms.TextBox();
-            this.txtRegistrerenNaam = new System.Windows.Forms.TextBox();
             KamerNummer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             btnUpgradeToSupervisor = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
@@ -871,9 +871,9 @@ namespace SomerenUI
             this.columnHeader2});
             this.listViewCRStudents.FullRowSelect = true;
             this.listViewCRStudents.HideSelection = false;
-            listViewItem1.Tag = "Student_nummer";
+            listViewItem2.Tag = "Student_nummer";
             this.listViewCRStudents.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem2});
             this.listViewCRStudents.Location = new System.Drawing.Point(45, 62);
             this.listViewCRStudents.MultiSelect = false;
             this.listViewCRStudents.Name = "listViewCRStudents";
@@ -1186,6 +1186,21 @@ namespace SomerenUI
             this.pnlRegistratie.Name = "pnlRegistratie";
             this.pnlRegistratie.Size = new System.Drawing.Size(943, 470);
             this.pnlRegistratie.TabIndex = 25;
+            this.pnlRegistratie.Visible = false;
+            // 
+            // txtRegistrerenNaam
+            // 
+            this.txtRegistrerenNaam.Location = new System.Drawing.Point(103, 96);
+            this.txtRegistrerenNaam.Name = "txtRegistrerenNaam";
+            this.txtRegistrerenNaam.Size = new System.Drawing.Size(100, 20);
+            this.txtRegistrerenNaam.TabIndex = 27;
+            // 
+            // txtRegistrerenEmail
+            // 
+            this.txtRegistrerenEmail.Location = new System.Drawing.Point(103, 123);
+            this.txtRegistrerenEmail.Name = "txtRegistrerenEmail";
+            this.txtRegistrerenEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtRegistrerenEmail.TabIndex = 26;
             // 
             // btnRegistreren
             // 
@@ -1244,20 +1259,6 @@ namespace SomerenUI
             this.lblRegistratieTitle.Size = new System.Drawing.Size(129, 29);
             this.lblRegistratieTitle.TabIndex = 0;
             this.lblRegistratieTitle.Text = "Registratie";
-            // 
-            // txtRegistrerenEmail
-            // 
-            this.txtRegistrerenEmail.Location = new System.Drawing.Point(103, 123);
-            this.txtRegistrerenEmail.Name = "txtRegistrerenEmail";
-            this.txtRegistrerenEmail.Size = new System.Drawing.Size(100, 20);
-            this.txtRegistrerenEmail.TabIndex = 26;
-            // 
-            // txtRegistrerenNaam
-            // 
-            this.txtRegistrerenNaam.Location = new System.Drawing.Point(103, 96);
-            this.txtRegistrerenNaam.Name = "txtRegistrerenNaam";
-            this.txtRegistrerenNaam.Size = new System.Drawing.Size(100, 20);
-            this.txtRegistrerenNaam.TabIndex = 27;
             // 
             // SomerenUI
             // 
