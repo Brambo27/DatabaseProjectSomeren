@@ -33,7 +33,7 @@ namespace SomerenUI
             System.Windows.Forms.ColumnHeader KamerNummer;
             System.Windows.Forms.Button btnUpgradeToSupervisor;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SomerenUI));
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dashboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -146,6 +146,25 @@ namespace SomerenUI
             this.chdrScheduleEndTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lbl_Schedule = new System.Windows.Forms.Label();
             this.pnl_Registratie = new System.Windows.Forms.Panel();
+            this.txt_nieuwGeheimAntwoord = new System.Windows.Forms.TextBox();
+            this.txt_nieuweGeheimeVraag = new System.Windows.Forms.TextBox();
+            this.lbl_nieuwGeheimAntwoord = new System.Windows.Forms.Label();
+            this.lbl_nieuweGeheimeVraag = new System.Windows.Forms.Label();
+            this.btn_veranderWachtwoord = new System.Windows.Forms.Button();
+            this.txt_nieuwWachtwoord = new System.Windows.Forms.TextBox();
+            this.lbl_nieuwWachtwoord = new System.Windows.Forms.Label();
+            this.btn_bevestigEmail = new System.Windows.Forms.Button();
+            this.btnLogInGeheimeVraag = new System.Windows.Forms.Button();
+            this.txt_geheimAntwoord = new System.Windows.Forms.TextBox();
+            this.lbl_geheimeVraag = new System.Windows.Forms.Label();
+            this.btn_forgotPassword = new System.Windows.Forms.Button();
+            this.btn_login = new System.Windows.Forms.Button();
+            this.txt_wachtwoord = new System.Windows.Forms.TextBox();
+            this.txt_email = new System.Windows.Forms.TextBox();
+            this.lbl_wachtwoord = new System.Windows.Forms.Label();
+            this.lbl_inlog_email = new System.Windows.Forms.Label();
+            this.lbl_Inloggen = new System.Windows.Forms.Label();
+            this.lbl_seperator = new System.Windows.Forms.Label();
             this.txtRegistrerenNaam = new System.Windows.Forms.TextBox();
             this.txtRegistrerenEmail = new System.Windows.Forms.TextBox();
             this.btnRegistreren = new System.Windows.Forms.Button();
@@ -154,13 +173,6 @@ namespace SomerenUI
             this.lblRegistratieEmail = new System.Windows.Forms.Label();
             this.lblRegistratieNaam = new System.Windows.Forms.Label();
             this.lblRegistratieTitle = new System.Windows.Forms.Label();
-            this.lbl_seperator = new System.Windows.Forms.Label();
-            this.lbl_Inloggen = new System.Windows.Forms.Label();
-            this.lbl_inlog_email = new System.Windows.Forms.Label();
-            this.lbl_wachtwoord = new System.Windows.Forms.Label();
-            this.txt_email = new System.Windows.Forms.TextBox();
-            this.txt_wachtwoord = new System.Windows.Forms.TextBox();
-            this.btn_login = new System.Windows.Forms.Button();
             KamerNummer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             btnUpgradeToSupervisor = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
@@ -878,9 +890,9 @@ namespace SomerenUI
             this.columnHeader2});
             this.listViewCRStudents.FullRowSelect = true;
             this.listViewCRStudents.HideSelection = false;
-            listViewItem2.Tag = "Student_nummer";
+            listViewItem3.Tag = "Student_nummer";
             this.listViewCRStudents.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem3});
             this.listViewCRStudents.Location = new System.Drawing.Point(45, 62);
             this.listViewCRStudents.MultiSelect = false;
             this.listViewCRStudents.Name = "listViewCRStudents";
@@ -1181,6 +1193,18 @@ namespace SomerenUI
             // 
             // pnl_Registratie
             // 
+            this.pnl_Registratie.Controls.Add(this.txt_nieuwGeheimAntwoord);
+            this.pnl_Registratie.Controls.Add(this.txt_nieuweGeheimeVraag);
+            this.pnl_Registratie.Controls.Add(this.lbl_nieuwGeheimAntwoord);
+            this.pnl_Registratie.Controls.Add(this.lbl_nieuweGeheimeVraag);
+            this.pnl_Registratie.Controls.Add(this.btn_veranderWachtwoord);
+            this.pnl_Registratie.Controls.Add(this.txt_nieuwWachtwoord);
+            this.pnl_Registratie.Controls.Add(this.lbl_nieuwWachtwoord);
+            this.pnl_Registratie.Controls.Add(this.btn_bevestigEmail);
+            this.pnl_Registratie.Controls.Add(this.btnLogInGeheimeVraag);
+            this.pnl_Registratie.Controls.Add(this.txt_geheimAntwoord);
+            this.pnl_Registratie.Controls.Add(this.lbl_geheimeVraag);
+            this.pnl_Registratie.Controls.Add(this.btn_forgotPassword);
             this.pnl_Registratie.Controls.Add(this.btn_login);
             this.pnl_Registratie.Controls.Add(this.txt_wachtwoord);
             this.pnl_Registratie.Controls.Add(this.txt_email);
@@ -1201,6 +1225,188 @@ namespace SomerenUI
             this.pnl_Registratie.Size = new System.Drawing.Size(1081, 500);
             this.pnl_Registratie.TabIndex = 25;
             this.pnl_Registratie.Visible = false;
+            // 
+            // txt_nieuwGeheimAntwoord
+            // 
+            this.txt_nieuwGeheimAntwoord.Location = new System.Drawing.Point(732, 139);
+            this.txt_nieuwGeheimAntwoord.Name = "txt_nieuwGeheimAntwoord";
+            this.txt_nieuwGeheimAntwoord.Size = new System.Drawing.Size(269, 20);
+            this.txt_nieuwGeheimAntwoord.TabIndex = 46;
+            this.txt_nieuwGeheimAntwoord.Visible = false;
+            // 
+            // txt_nieuweGeheimeVraag
+            // 
+            this.txt_nieuweGeheimeVraag.Location = new System.Drawing.Point(732, 113);
+            this.txt_nieuweGeheimeVraag.Name = "txt_nieuweGeheimeVraag";
+            this.txt_nieuweGeheimeVraag.Size = new System.Drawing.Size(269, 20);
+            this.txt_nieuweGeheimeVraag.TabIndex = 45;
+            this.txt_nieuweGeheimeVraag.Visible = false;
+            // 
+            // lbl_nieuwGeheimAntwoord
+            // 
+            this.lbl_nieuwGeheimAntwoord.AutoSize = true;
+            this.lbl_nieuwGeheimAntwoord.Location = new System.Drawing.Point(552, 142);
+            this.lbl_nieuwGeheimAntwoord.Name = "lbl_nieuwGeheimAntwoord";
+            this.lbl_nieuwGeheimAntwoord.Size = new System.Drawing.Size(179, 13);
+            this.lbl_nieuwGeheimAntwoord.TabIndex = 44;
+            this.lbl_nieuwGeheimAntwoord.Text = "Voer een nieuw geheim antwoord in:";
+            this.lbl_nieuwGeheimAntwoord.Visible = false;
+            // 
+            // lbl_nieuweGeheimeVraag
+            // 
+            this.lbl_nieuweGeheimeVraag.AutoSize = true;
+            this.lbl_nieuweGeheimeVraag.Location = new System.Drawing.Point(552, 116);
+            this.lbl_nieuweGeheimeVraag.Name = "lbl_nieuweGeheimeVraag";
+            this.lbl_nieuweGeheimeVraag.Size = new System.Drawing.Size(174, 13);
+            this.lbl_nieuweGeheimeVraag.TabIndex = 43;
+            this.lbl_nieuweGeheimeVraag.Text = "Voer een nieuwe geheime vraag in:";
+            this.lbl_nieuweGeheimeVraag.Visible = false;
+            // 
+            // btn_veranderWachtwoord
+            // 
+            this.btn_veranderWachtwoord.Location = new System.Drawing.Point(653, 179);
+            this.btn_veranderWachtwoord.Name = "btn_veranderWachtwoord";
+            this.btn_veranderWachtwoord.Size = new System.Drawing.Size(254, 40);
+            this.btn_veranderWachtwoord.TabIndex = 42;
+            this.btn_veranderWachtwoord.Text = "Bevestig veranderingen";
+            this.btn_veranderWachtwoord.UseVisualStyleBackColor = true;
+            this.btn_veranderWachtwoord.Visible = false;
+            this.btn_veranderWachtwoord.Click += new System.EventHandler(this.btn_veranderWachtwoord_Click);
+            // 
+            // txt_nieuwWachtwoord
+            // 
+            this.txt_nieuwWachtwoord.Location = new System.Drawing.Point(555, 89);
+            this.txt_nieuwWachtwoord.Name = "txt_nieuwWachtwoord";
+            this.txt_nieuwWachtwoord.Size = new System.Drawing.Size(446, 20);
+            this.txt_nieuwWachtwoord.TabIndex = 41;
+            this.txt_nieuwWachtwoord.Visible = false;
+            // 
+            // lbl_nieuwWachtwoord
+            // 
+            this.lbl_nieuwWachtwoord.AutoSize = true;
+            this.lbl_nieuwWachtwoord.Location = new System.Drawing.Point(554, 56);
+            this.lbl_nieuwWachtwoord.Name = "lbl_nieuwWachtwoord";
+            this.lbl_nieuwWachtwoord.Size = new System.Drawing.Size(421, 26);
+            this.lbl_nieuwWachtwoord.TabIndex = 40;
+            this.lbl_nieuwWachtwoord.Text = "Voer uw nieuwe wachtwoord in van minimaal 8 characters in.\r\nHet wachtwoord moet e" +
+    "en hoofdletter, kleine letter, leesteken en een nummer bevatten.";
+            this.lbl_nieuwWachtwoord.Visible = false;
+            // 
+            // btn_bevestigEmail
+            // 
+            this.btn_bevestigEmail.Location = new System.Drawing.Point(914, 72);
+            this.btn_bevestigEmail.Name = "btn_bevestigEmail";
+            this.btn_bevestigEmail.Size = new System.Drawing.Size(75, 23);
+            this.btn_bevestigEmail.TabIndex = 39;
+            this.btn_bevestigEmail.Text = "Bevestig";
+            this.btn_bevestigEmail.UseVisualStyleBackColor = true;
+            this.btn_bevestigEmail.Visible = false;
+            this.btn_bevestigEmail.Click += new System.EventHandler(this.btn_bevestigEmail_Click);
+            // 
+            // btnLogInGeheimeVraag
+            // 
+            this.btnLogInGeheimeVraag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnLogInGeheimeVraag.Location = new System.Drawing.Point(557, 192);
+            this.btnLogInGeheimeVraag.Name = "btnLogInGeheimeVraag";
+            this.btnLogInGeheimeVraag.Size = new System.Drawing.Size(339, 32);
+            this.btnLogInGeheimeVraag.TabIndex = 38;
+            this.btnLogInGeheimeVraag.Text = "Bevestig antwoord";
+            this.btnLogInGeheimeVraag.UseVisualStyleBackColor = true;
+            this.btnLogInGeheimeVraag.Visible = false;
+            this.btnLogInGeheimeVraag.Click += new System.EventHandler(this.btnLogInGeheimeVraag_Click);
+            // 
+            // txt_geheimAntwoord
+            // 
+            this.txt_geheimAntwoord.Location = new System.Drawing.Point(555, 151);
+            this.txt_geheimAntwoord.Name = "txt_geheimAntwoord";
+            this.txt_geheimAntwoord.Size = new System.Drawing.Size(340, 20);
+            this.txt_geheimAntwoord.TabIndex = 37;
+            this.txt_geheimAntwoord.Visible = false;
+            // 
+            // lbl_geheimeVraag
+            // 
+            this.lbl_geheimeVraag.AutoSize = true;
+            this.lbl_geheimeVraag.Location = new System.Drawing.Point(553, 126);
+            this.lbl_geheimeVraag.Name = "lbl_geheimeVraag";
+            this.lbl_geheimeVraag.Size = new System.Drawing.Size(0, 13);
+            this.lbl_geheimeVraag.TabIndex = 36;
+            this.lbl_geheimeVraag.Visible = false;
+            // 
+            // btn_forgotPassword
+            // 
+            this.btn_forgotPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btn_forgotPassword.Location = new System.Drawing.Point(556, 238);
+            this.btn_forgotPassword.Name = "btn_forgotPassword";
+            this.btn_forgotPassword.Size = new System.Drawing.Size(340, 35);
+            this.btn_forgotPassword.TabIndex = 35;
+            this.btn_forgotPassword.Text = "Wachtwoord vergeten?";
+            this.btn_forgotPassword.UseVisualStyleBackColor = true;
+            this.btn_forgotPassword.Click += new System.EventHandler(this.btn_forgotPassword_Click);
+            // 
+            // btn_login
+            // 
+            this.btn_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btn_login.Location = new System.Drawing.Point(556, 191);
+            this.btn_login.Name = "btn_login";
+            this.btn_login.Size = new System.Drawing.Size(340, 33);
+            this.btn_login.TabIndex = 34;
+            this.btn_login.Text = "Log in";
+            this.btn_login.UseVisualStyleBackColor = true;
+            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
+            // 
+            // txt_wachtwoord
+            // 
+            this.txt_wachtwoord.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txt_wachtwoord.Location = new System.Drawing.Point(697, 94);
+            this.txt_wachtwoord.Name = "txt_wachtwoord";
+            this.txt_wachtwoord.PasswordChar = '*';
+            this.txt_wachtwoord.Size = new System.Drawing.Size(199, 20);
+            this.txt_wachtwoord.TabIndex = 33;
+            // 
+            // txt_email
+            // 
+            this.txt_email.Location = new System.Drawing.Point(697, 73);
+            this.txt_email.Name = "txt_email";
+            this.txt_email.Size = new System.Drawing.Size(199, 20);
+            this.txt_email.TabIndex = 32;
+            // 
+            // lbl_wachtwoord
+            // 
+            this.lbl_wachtwoord.AutoSize = true;
+            this.lbl_wachtwoord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lbl_wachtwoord.Location = new System.Drawing.Point(552, 92);
+            this.lbl_wachtwoord.Name = "lbl_wachtwoord";
+            this.lbl_wachtwoord.Size = new System.Drawing.Size(102, 20);
+            this.lbl_wachtwoord.TabIndex = 31;
+            this.lbl_wachtwoord.Text = "Wachtwoord:";
+            // 
+            // lbl_inlog_email
+            // 
+            this.lbl_inlog_email.AutoSize = true;
+            this.lbl_inlog_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lbl_inlog_email.Location = new System.Drawing.Point(551, 68);
+            this.lbl_inlog_email.Name = "lbl_inlog_email";
+            this.lbl_inlog_email.Size = new System.Drawing.Size(52, 20);
+            this.lbl_inlog_email.TabIndex = 30;
+            this.lbl_inlog_email.Text = "Email:";
+            // 
+            // lbl_Inloggen
+            // 
+            this.lbl_Inloggen.AutoSize = true;
+            this.lbl_Inloggen.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
+            this.lbl_Inloggen.Location = new System.Drawing.Point(549, 11);
+            this.lbl_Inloggen.Name = "lbl_Inloggen";
+            this.lbl_Inloggen.Size = new System.Drawing.Size(107, 29);
+            this.lbl_Inloggen.TabIndex = 29;
+            this.lbl_Inloggen.Text = "Inloggen";
+            // 
+            // lbl_seperator
+            // 
+            this.lbl_seperator.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbl_seperator.Location = new System.Drawing.Point(533, 0);
+            this.lbl_seperator.Name = "lbl_seperator";
+            this.lbl_seperator.Size = new System.Drawing.Size(10, 506);
+            this.lbl_seperator.TabIndex = 28;
             // 
             // txtRegistrerenNaam
             // 
@@ -1273,71 +1479,6 @@ namespace SomerenUI
             this.lblRegistratieTitle.Size = new System.Drawing.Size(129, 29);
             this.lblRegistratieTitle.TabIndex = 0;
             this.lblRegistratieTitle.Text = "Registratie";
-            // 
-            // lbl_seperator
-            // 
-            this.lbl_seperator.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lbl_seperator.Location = new System.Drawing.Point(533, 0);
-            this.lbl_seperator.Name = "lbl_seperator";
-            this.lbl_seperator.Size = new System.Drawing.Size(10, 506);
-            this.lbl_seperator.TabIndex = 28;
-            // 
-            // lbl_Inloggen
-            // 
-            this.lbl_Inloggen.AutoSize = true;
-            this.lbl_Inloggen.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
-            this.lbl_Inloggen.Location = new System.Drawing.Point(549, 11);
-            this.lbl_Inloggen.Name = "lbl_Inloggen";
-            this.lbl_Inloggen.Size = new System.Drawing.Size(107, 29);
-            this.lbl_Inloggen.TabIndex = 29;
-            this.lbl_Inloggen.Text = "Inloggen";
-            // 
-            // lbl_inlog_email
-            // 
-            this.lbl_inlog_email.AutoSize = true;
-            this.lbl_inlog_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbl_inlog_email.Location = new System.Drawing.Point(551, 68);
-            this.lbl_inlog_email.Name = "lbl_inlog_email";
-            this.lbl_inlog_email.Size = new System.Drawing.Size(52, 20);
-            this.lbl_inlog_email.TabIndex = 30;
-            this.lbl_inlog_email.Text = "Email:";
-            // 
-            // lbl_wachtwoord
-            // 
-            this.lbl_wachtwoord.AutoSize = true;
-            this.lbl_wachtwoord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbl_wachtwoord.Location = new System.Drawing.Point(552, 92);
-            this.lbl_wachtwoord.Name = "lbl_wachtwoord";
-            this.lbl_wachtwoord.Size = new System.Drawing.Size(102, 20);
-            this.lbl_wachtwoord.TabIndex = 31;
-            this.lbl_wachtwoord.Text = "Wachtwoord:";
-            // 
-            // txt_email
-            // 
-            this.txt_email.Location = new System.Drawing.Point(697, 73);
-            this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(199, 20);
-            this.txt_email.TabIndex = 32;
-            // 
-            // txt_wachtwoord
-            // 
-            this.txt_wachtwoord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txt_wachtwoord.Location = new System.Drawing.Point(697, 94);
-            this.txt_wachtwoord.Name = "txt_wachtwoord";
-            this.txt_wachtwoord.PasswordChar = '*';
-            this.txt_wachtwoord.Size = new System.Drawing.Size(199, 23);
-            this.txt_wachtwoord.TabIndex = 33;
-            // 
-            // btn_login
-            // 
-            this.btn_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_login.Location = new System.Drawing.Point(556, 135);
-            this.btn_login.Name = "btn_login";
-            this.btn_login.Size = new System.Drawing.Size(340, 33);
-            this.btn_login.TabIndex = 34;
-            this.btn_login.Text = "Log in";
-            this.btn_login.UseVisualStyleBackColor = true;
-            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
             // SomerenUI
             // 
@@ -1520,6 +1661,18 @@ namespace SomerenUI
         private System.Windows.Forms.Label lbl_inlog_email;
         private System.Windows.Forms.Label lbl_Inloggen;
         private System.Windows.Forms.Label lbl_seperator;
+        private System.Windows.Forms.Button btn_forgotPassword;
+        private System.Windows.Forms.TextBox txt_geheimAntwoord;
+        private System.Windows.Forms.Label lbl_geheimeVraag;
+        private System.Windows.Forms.Button btnLogInGeheimeVraag;
+        private System.Windows.Forms.Button btn_bevestigEmail;
+        private System.Windows.Forms.TextBox txt_nieuwWachtwoord;
+        private System.Windows.Forms.Label lbl_nieuwWachtwoord;
+        private System.Windows.Forms.Button btn_veranderWachtwoord;
+        private System.Windows.Forms.TextBox txt_nieuwGeheimAntwoord;
+        private System.Windows.Forms.TextBox txt_nieuweGeheimeVraag;
+        private System.Windows.Forms.Label lbl_nieuwGeheimAntwoord;
+        private System.Windows.Forms.Label lbl_nieuweGeheimeVraag;
     }
 }
 

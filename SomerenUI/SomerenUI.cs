@@ -919,7 +919,7 @@ namespace SomerenUI
 
             if (txt_email.Text == "" || txt_wachtwoord.Text == "")
             {
-                MessageBox.Show("Email en/of wachtwoord mag niet leeg zijn");
+                MessageBox.Show("E-mail en/of wachtwoord mag niet leeg zijn");
             }
             else
             {
@@ -945,9 +945,127 @@ namespace SomerenUI
                 }
                 if (!emailBekend)
                 {
-                    MessageBox.Show("Dit email is niet bekent, registreer eerst");
+                    MessageBox.Show("Dit e-mailadres is niet bekent, registreer eerst");
                 }
             }       
+        }
+
+        private void btn_forgotPassword_Click(object sender, EventArgs e)
+        {
+            lbl_wachtwoord.Visible = false;
+            txt_wachtwoord.Visible = false;
+            lbl_geheimeVraag.Visible = true;
+            btn_login.Visible = false;
+            btn_bevestigEmail.Visible = true;
+            btn_forgotPassword.Visible = false;
+        }
+
+        private void btnLogInGeheimeVraag_Click(object sender, EventArgs e)
+        {
+            SomerenLogic.Gebruiker_Service gebruiker_Service = new SomerenLogic.Gebruiker_Service();
+            List<Gebruiker> gebruikers = gebruiker_Service.GetUsers();
+
+            if (txt_email.Text == "" || txt_geheimAntwoord.Text == "")
+            {
+                MessageBox.Show("E-mail en/of antwoord mag niet leeg zijn");
+            }
+            else
+            {
+                string email = txt_email.Text;
+                bool emailBekend = false;
+
+                foreach (Gebruiker gebruiker in gebruikers)
+                {
+                    if (gebruiker.Email == email)
+                    {
+                        emailBekend = true;
+                        string geheimeAntwoord = txt_geheimAntwoord.Text;
+
+                        if (gebruiker.GeheimeAntwoord == geheimeAntwoord)
+                        {
+                            lbl_nieuwWachtwoord.Visible = true;
+                            txt_nieuwWachtwoord.Visible = true;
+                            lbl_nieuweGeheimeVraag.Visible = true;
+                            txt_nieuweGeheimeVraag.Visible = true;
+                            lbl_nieuwGeheimAntwoord.Visible = true;
+                            txt_nieuwGeheimAntwoord.Visible = true;
+                            lbl_geheimeVraag.Visible = false;
+                            btn_veranderWachtwoord.Visible = true;
+                            txt_geheimAntwoord.Visible = false;
+                            btnLogInGeheimeVraag.Visible = false;
+                            lbl_inlog_email.Visible = false;
+                            txt_email.Visible = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Verkeerde antwoord");
+                            break;
+                        }
+                    }
+                }
+                if (!emailBekend)
+                {
+                    MessageBox.Show("Dit e-mailadres is niet bekent, registreer eerst");
+                }
+            }
+
+        }
+
+        private void btn_bevestigEmail_Click(object sender, EventArgs e)
+        {
+            SomerenLogic.Gebruiker_Service gebruiker_Service = new SomerenLogic.Gebruiker_Service();
+            List<Gebruiker> gebruikers = gebruiker_Service.GetUsers();
+
+            if (txt_email.Text == "")
+            {
+                MessageBox.Show("E-mail mag niet leeg zijn");
+            }
+            else
+            {
+                bool emailBekend = false;
+                ;
+                foreach (Gebruiker gebruiker in gebruikers)
+                {
+                    if (gebruiker.Email.IndexOf(txt_email.Text, StringComparison.CurrentCultureIgnoreCase) >= 0)
+                    {
+                        emailBekend = true;
+                        btn_bevestigEmail.Visible = false;
+                        lbl_geheimeVraag.Text = gebruiker.GeheimeVraag;
+                        txt_geheimAntwoord.Visible = true;
+                        btnLogInGeheimeVraag.Visible = true;
+                        
+                    }
+                }
+                if (!emailBekend)
+                {
+                    MessageBox.Show("Dit e-mailadres is niet bekent, registreer eerst");
+                }
+            }
+        }
+
+        private void btn_veranderWachtwoord_Click(object sender, EventArgs e)
+        {
+            Gebruiker_Service gebruiker_Service = new Gebruiker_Service();
+
+            if (txt_nieuwWachtwoord.Text == "" || txt_nieuweGeheimeVraag.Text == "" || txt_nieuwGeheimAntwoord.Text == "")
+            {
+                MessageBox.Show("Een van de vakken is niet ingevuld.");
+            }
+            else
+            {
+                string nieuwWachtwoord = txt_nieuwWachtwoord.Text;
+                int lengteWachtwoord = nieuwWachtwoord.Length;
+                if (lengteWachtwoord <= 7 || nieuwWachtwoord.Any(char.IsUpper) == false || nieuwWachtwoord.Any(char.IsLower) == false || 
+                                              nieuwWachtwoord.Any(char.IsDigit) == false || nieuwWachtwoord.Any(char.IsSymbol) == false)
+                {
+                    MessageBox.Show("Wachtwoord voldoet niet aan alle eisen.");
+                }
+                else
+                {
+                    gebruiker_Service.ChangePassword(txt_email.Text, txt_nieuwWachtwoord.Text, txt_nieuweGeheimeVraag.Text, txt_nieuwGeheimAntwoord.Text);
+                    showPanel("Dashboard");
+                }
+            }
         }
     }
 }

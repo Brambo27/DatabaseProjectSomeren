@@ -53,9 +53,16 @@ namespace SomerenDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
+        public void UpdatePassword(string email, string newPassword, string newSecretQuestion, string newSecretAnswer)
+        {
+            string query = "UPDATE gebruiker SET wachtwoord = '" + newPassword + "', geheimeVraag = '" + newSecretQuestion+ "', geheimAntwoord = '" + newSecretAnswer + "' WHERE email = '" + email + "'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
         public List<Gebruiker> Db_Get_All_Gebruikers()
         {
-            string query = "SELECT email, wachtwoord FROM gebruiker";
+            string query = "SELECT email, wachtwoord, geheimeVraag, geheimAntwoord FROM gebruiker";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return GetGebruikers(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -86,7 +93,9 @@ namespace SomerenDAL
                 Gebruiker gebruiker = new Gebruiker()
                 {
                     Email = (string)dr["email"].ToString(),
-                    Wachtwoord = (string)dr["wachtwoord"].ToString()
+                    Wachtwoord = (string)dr["wachtwoord"].ToString(),
+                    GeheimeVraag = (string)dr["geheimeVraag"],
+                    GeheimeAntwoord = (string)dr["geheimAntwoord"]
                 };
                 gebruikers.Add(gebruiker);
             }

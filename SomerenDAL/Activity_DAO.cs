@@ -63,7 +63,7 @@ namespace SomerenDAL
                 Activity activity = new Activity()
                 {
                     activityID = (int)dr["Activiteit_ID"],
-                    activityName = (String)(dr["soort"].ToString()),
+                    activityName = (string)(dr["soort"].ToString()),
                     numberOfStudents = (int)dr["aantalStudenten"],
                     numerOfDocents = (int)dr["aantalBegeleiders"]
                 };

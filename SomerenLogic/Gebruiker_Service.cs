@@ -37,6 +37,11 @@ namespace SomerenLogic
             gebruiker_db.UpdateAdminRequestStatus(SetStatusTo, gebruiker_ID);
         }
 
+        public void ChangePassword(string email, string newPassword, string secretQuestion, string secretAnswer)
+        {
+            gebruiker_db.UpdatePassword(email, newPassword, secretQuestion, secretAnswer);
+        }
+
         public List<Gebruiker> GetUsers()
         {
             return gebruiker_db.Db_Get_All_Gebruikers();

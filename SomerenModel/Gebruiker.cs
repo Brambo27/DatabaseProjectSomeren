@@ -13,5 +13,7 @@ namespace SomerenModel
         public string Email { get; set; }
         public bool IsAdmin { get; set; }
         public string Wachtwoord { get; set; }
+        public string GeheimeVraag { get; set; }
+        public string GeheimeAntwoord { get; set; }
     }
 }
